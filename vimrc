@@ -9,6 +9,10 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
+" THVP - activate pathogen
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -142,7 +146,6 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " map NERDTree to \p
-call pathogen#infect()
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
 set hidden
