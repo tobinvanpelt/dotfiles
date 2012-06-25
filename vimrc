@@ -178,3 +178,9 @@ set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
 
 silent execute '!rm -f ~/.vim/tmp/backup/*'
+
+" esc mapping
+"inoremap jk <esc>
+"inoremap kj <esc>
+
+set colorcolumn=80
