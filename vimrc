@@ -115,14 +115,14 @@ set completeopt+=longest
 set number
 set incsearch
 
-"Higlight current line only in insert mode
+" Higlight current line only in insert mode
 autocmd InsertLeave * set nocursorline
 autocmd InsertEnter * set cursorline
 
-"Highlight cursor
+" Highlight cursor
 highlight CursorLine ctermbg=8 cterm=NONE
 
-    " HTML (tab width 2 chr, no wrapping)
+" HTML (tab width 2 chr, no wrapping)
 autocmd FileType html setlocal sw=2
 autocmd FileType html setlocal ts=2
 autocmd FileType html setlocal sts=2
@@ -183,4 +183,10 @@ silent execute '!rm -f ~/.vim/tmp/backup/*'
 "inoremap jk <esc>
 "inoremap kj <esc>
 
+
+" colored right edge
 set colorcolumn=80
+
+" syntastic
+let g:syntastic_check_on_open=1 
+let g:syntastic_loc_list_height=4
