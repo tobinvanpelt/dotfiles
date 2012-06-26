@@ -10,8 +10,9 @@
 "	    for OpenVMS:  sys$login:.vimrc
 
 " THVP - activate pathogen
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
+call pathogen#infect()
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -190,3 +191,4 @@ set colorcolumn=80
 " syntastic
 let g:syntastic_check_on_open=1 
 let g:syntastic_loc_list_height=4
+let g:syntastic_javascript_checker='jsl'

@@ -4,3 +4,9 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = http://github.com/scrooloose/syntastic.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = http://github.com/ervandew/supertab.git
+[submodule "bundle/minibufexpl"]
+	path = bundle/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim.git
