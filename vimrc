@@ -184,6 +184,8 @@ silent execute '!rm -f ~/.vim/tmp/backup/*'
 "inoremap jk <esc>
 "inoremap kj <esc>
 
+" map \c to toggle line highlight
+:nnoremap <Leader>c :set cursorline! <CR>
 
 " colored right edge
 set colorcolumn=80
