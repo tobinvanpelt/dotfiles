@@ -117,8 +117,8 @@ set number
 set incsearch
 
 " Higlight current line only in insert mode
-autocmd InsertLeave * set nocursorline
-autocmd InsertEnter * set cursorline
+" autocmd InsertLeave * set nocursorline
+" autocmd InsertEnter * set cursorline
 
 " Highlight cursor
 highlight CursorLine ctermbg=8 cterm=NONE
@@ -180,12 +180,10 @@ set directory=~/.vim/tmp/swap//
 
 silent execute '!rm -f ~/.vim/tmp/backup/*'
 
-" esc mapping
-"inoremap jk <esc>
-"inoremap kj <esc>
-
 " map \c to toggle line highlight
 :nnoremap <Leader>c :set cursorline! <CR>
+:autocmd WinEnter * setlocal cursorline
+:autocmd WinLeave * setlocal nocursorline
 
 " colored right edge
 set colorcolumn=80
