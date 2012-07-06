@@ -182,6 +182,7 @@ silent execute '!rm -f ~/.vim/tmp/backup/*'
 
 " map \c to toggle line highlight
 :nnoremap <Leader>c :set cursorline! <CR>
+
 :autocmd WinEnter * setlocal cursorline
 :autocmd WinLeave * setlocal nocursorline
 
@@ -192,3 +193,27 @@ set colorcolumn=80
 let g:syntastic_check_on_open=1 
 let g:syntastic_loc_list_height=4
 let g:syntastic_javascript_checker='jsl'
+
+" coffee-script
+autocmd FileType coffee setlocal sw=2
+autocmd FileType coffee setlocal ts=2
+autocmd FileType coffee setlocal sts=2
+
+let coffee_make_options = '--bare'
+au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
+let coffee_compile_vert = 1
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+command! Watch wincmd J | CoffeeCompile watch vert
+
+" ctrlp
+let g:ctrlp_arg_map = 1
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_custom_ignore= '\.js$'
+command! ShowJS let g:ctrlp_custom_ignore= '' | :ClearAllCtrlPCaches
+command! HideJS let g:ctrlp_custom_ignore= '\.js$' | :ClearAllCtrlPCaches
+
+" defualt split locations
+set splitbelow
+set splitright
