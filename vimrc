@@ -205,7 +205,8 @@ let coffee_compile_vert = 1
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
-command! Watch wincmd J | CoffeeCompile watch vert
+command! Watch CoffeeCompile watch vert
+command! WatchBottom wincmd J | Watch
 
 " ctrlp
 let g:ctrlp_arg_map = 1
@@ -217,3 +218,8 @@ command! HideJS let g:ctrlp_custom_ignore= '\.js$' | :ClearAllCtrlPCaches
 " defualt split locations
 set splitbelow
 set splitright
+
+" powerline
+set nocompatible   " Disable vi-compatibility
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show unicode glyphs
