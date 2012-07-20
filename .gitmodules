@@ -34,3 +34,6 @@
 [submodule "bundle/vim-ipython"]
 	path = bundle/vim-ipython
 	url = git://github.com/ivanov/vim-ipython.git
+[submodule "bundle/python-mode"]
+	path = bundle/python-mode
+	url = git://github.com/klen/python-mode.git
