@@ -12,8 +12,16 @@
 " THVP - activate pathogen
 "call pathogen#runtime_append_all_bundles()
 "call pathogen#helptags()
-call pathogen#infect()
+"call pathogen#infect()
+filetype off
 
+call pathogen#infect()
+call pathogen#helptags()
+
+filetype plugin indent on
+syntax on
+
+    
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -181,10 +189,10 @@ set directory=~/.vim/tmp/swap//
 silent execute '!rm -f ~/.vim/tmp/backup/*'
 
 " map \c to toggle line highlight
-:nnoremap <Leader>c :set cursorline! <CR>
+nnoremap <Leader>c :set cursorline! <CR>
 
-:autocmd WinEnter * setlocal cursorline
-:autocmd WinLeave * setlocal nocursorline
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
 
 " colored right edge
 set colorcolumn=80
@@ -223,3 +231,22 @@ set splitright
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
+
+" flake 8
+let g:syntastic_python_checker_args='--ignore=E70'
+
+" python mode
+" turn off lint, breakpoint, and run
+let g:pymode_lint=0
+let g:pymode_breakpoint=0
+let g:pymode_run=0
+
+" Conque shell
+command! Python :ConqueTerm ipython --colors linux
+command! PythonVSplit :ConqueTermVSplit ipython --colors linux
+command! PythonSplit :ConqueTermSplit ipython --colors linux
+
+let g:ConqueTerm_StartMessages=0
+let g:ConqueTerm_InsertOnEnter=1
+let g:ConqueTerm_CWInsert=1
+let g:ConqueTerm_CloseOnEnd=1
