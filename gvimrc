@@ -1,5 +1,5 @@
 colorscheme desert
-set transparency=10
+set transparency=5
 set go+=c
 set go-=T
 

@@ -21,7 +21,6 @@ call pathogen#helptags()
 filetype plugin indent on
 syntax on
 
-    
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -194,6 +193,8 @@ nnoremap <Leader>c :set cursorline! <CR>
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 
+set cursorline
+
 " colored right edge
 set colorcolumn=80
 
@@ -231,7 +232,7 @@ set splitright
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
-
+                                    
 " flake 8
 let g:syntastic_python_checker_args='--ignore=E70'
 
@@ -245,8 +246,41 @@ let g:pymode_run=0
 command! Python :ConqueTerm ipython --colors linux
 command! PythonVSplit :ConqueTermVSplit ipython --colors linux
 command! PythonSplit :ConqueTermSplit ipython --colors linux
+command! -nargs=? -complete=file_in_path RunPython :call RunPython('split', <f-args>)
+command! -nargs=? -complete=file_in_path RunPythonTab :call RunPython('tabnew', <f-args>)
+noremap <leader>r :RunPython<cr>
+noremap <leader>R :RunPythonTab<cr>
 
-let g:ConqueTerm_StartMessages=0
-let g:ConqueTerm_InsertOnEnter=1
-let g:ConqueTerm_CWInsert=1
-let g:ConqueTerm_CloseOnEnd=1
+function! RunPython(win_loc, ...)
+    if a:0 == 0
+        let fname = expand('%')
+    else
+        let fname = a:1
+    endif
+
+    call conque_term#open('python ' . fname, [a:win_loc])
+endfunction
+
+function! MyConqueEnter(term)
+    set nocursorline   
+endfunction
+
+function! MyConqueLeave(term)
+    set cursorline   
+endfunction
+
+call conque_term#register_function('buffer_enter', 'MyConqueEnter')
+call conque_term#register_function('buffer_leave', 'MyConqueLeave')
+
+let g:ConqueTerm_StartMessages = 0
+let g:ConqueTerm_InsertOnEnter = 0
+let g:ConqueTerm_CWInsert = 0
+let g:ConqueTerm_CloseOnEnd = 1
+let g:ConqueTerm_ReadUnfocused = 1
+let g:ConqueTerm_TERM = 'xterm'
+
+" fixes long delay on single <esc> in conque - may effect others too
+set timeoutlen=250
+
+" nose compiler default to use iwth makegreen
+autocmd BufNewFile,BufRead *.py compiler nose
