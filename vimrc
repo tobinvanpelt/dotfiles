@@ -10,16 +10,7 @@
 "	    for OpenVMS:  sys$login:.vimrc
 
 " THVP - activate pathogen
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
-"call pathogen#infect()
-filetype off
-
 call pathogen#infect()
-call pathogen#helptags()
-
-filetype plugin indent on
-syntax on
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -282,5 +273,6 @@ let g:ConqueTerm_TERM = 'xterm'
 " fixes long delay on single <esc> in conque - may effect others too
 set timeoutlen=250
 
-" nose compiler default to use iwth makegreen
+" nose compiler default to use with makegreen
 autocmd BufNewFile,BufRead *.py compiler nose
+

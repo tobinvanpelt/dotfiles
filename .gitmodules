@@ -43,9 +43,9 @@
 [submodule "bundle/autoclose"]
 	path = bundle/autoclose
 	url = git://github.com/Townk/vim-autoclose.git
-[submodule "bundle/conque-shell"]
-	path = bundle/conque-shell
-	url = git://github.com/vim-scripts/Conque-Shell.git
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "bundle/conque"]
+	path = bundle/conque
+	url = git://github.com/rson/vim-conque.git
