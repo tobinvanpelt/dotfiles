@@ -114,10 +114,6 @@ set completeopt+=longest
 set number
 set incsearch
 
-" Higlight current line only in insert mode
-" autocmd InsertLeave * set nocursorline
-" autocmd InsertEnter * set cursorline
-
 " Highlight cursor
 highlight CursorLine ctermbg=8 cterm=NONE
 
@@ -184,7 +180,11 @@ nnoremap <Leader>c :set cursorline! <CR>
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 
-set cursorline
+autocmd BufEnter * setlocal cursorline
+autocmd BufHidden * setlocal cursorline
+
+"autocmd BufWinEnter * setlocal cursorline
+"set cursorline
 
 " colored right edge
 set colorcolumn=80
@@ -209,11 +209,12 @@ command! Watch CoffeeCompile watch vert
 command! WatchBottom wincmd J | Watch
 
 " ctrlp
+let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_arg_map = 1
 let g:ctrlp_dotfiles = 0
-let g:ctrlp_custom_ignore= '\.js$'
-command! ShowJS let g:ctrlp_custom_ignore= '' | :ClearAllCtrlPCaches
-command! HideJS let g:ctrlp_custom_ignore= '\.js$' | :ClearAllCtrlPCaches
+let g:ctrlp_custom_ignore= '\.js$\|\.pyc$'
+command! ShowJS let g:ctrlp_custom_ignore= '\.pyc$' | :ClearAllCtrlPCaches
+command! HideJS let g:ctrlp_custom_ignore= '\.js$\|\.pyc$' | :ClearAllCtrlPCaches
 
 " defualt split locations
 set splitbelow
@@ -234,38 +235,21 @@ let g:pymode_breakpoint=0
 let g:pymode_run=0
 
 " Conque shell
-command! Python :ConqueTerm ipython --colors linux
-command! PythonVSplit :ConqueTermVSplit ipython --colors linux
-command! PythonSplit :ConqueTermSplit ipython --colors linux
-command! -nargs=? -complete=file_in_path RunPython :call RunPython('split', <f-args>)
-command! -nargs=? -complete=file_in_path RunPythonTab :call RunPython('tabnew', <f-args>)
-noremap <leader>r :RunPython<cr>
-noremap <leader>R :RunPythonTab<cr>
-
-function! RunPython(win_loc, ...)
-    if a:0 == 0
-        let fname = expand('%')
-    else
-        let fname = a:1
-    endif
-
-    call conque_term#open('python ' . fname, [a:win_loc])
+function! NoCursorHighlight(term)
+    set nocursorline
 endfunction
 
-function! MyConqueEnter(term)
-    set nocursorline   
+function! CursorHighlight(term)
+    set cursorline
 endfunction
 
-function! MyConqueLeave(term)
-    set cursorline   
-endfunction
-
-call conque_term#register_function('buffer_enter', 'MyConqueEnter')
-call conque_term#register_function('buffer_leave', 'MyConqueLeave')
+call conque_term#register_function('after_startup', 'NoCursorHighlight')
+call conque_term#register_function('buffer_enter', 'NoCursorHighlight')
+call conque_term#register_function('buffer_leave', 'CursorHighlight')
 
 let g:ConqueTerm_StartMessages = 0
-let g:ConqueTerm_InsertOnEnter = 0
-let g:ConqueTerm_CWInsert = 0
+let g:ConqueTerm_InsertOnEnter = 1
+let g:ConqueTerm_CWInsert = 1
 let g:ConqueTerm_CloseOnEnd = 1
 let g:ConqueTerm_ReadUnfocused = 1
 let g:ConqueTerm_TERM = 'xterm'
@@ -273,6 +257,8 @@ let g:ConqueTerm_TERM = 'xterm'
 " fixes long delay on single <esc> in conque - may effect others too
 set timeoutlen=250
 
-" nose compiler default to use with makegreen
-autocmd BufNewFile,BufRead *.py compiler nose
+" nose compiler 
+"autocmd BufNewFile,BufRead *.py compiler nose
 
+" toggle tagbar
+nnoremap <silent> <leader>t :TagbarToggle<CR>
