@@ -55,3 +55,5 @@ Python IDE notes/reminders
     
     [[  [M - goto next def, class, method
     aC, aM - select class or function
+
+6. using vim-virtualenv to manage python packages

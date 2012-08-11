@@ -189,6 +189,9 @@ autocmd BufHidden * setlocal cursorline
 " colored right edge
 set colorcolumn=80
 
+" nerdtree
+let NERDTreeIgnore = ['\.pyc$']
+
 " syntastic
 let g:syntastic_check_on_open=1 
 let g:syntastic_loc_list_height=4
@@ -262,3 +265,7 @@ set timeoutlen=250
 
 " toggle tagbar
 nnoremap <silent> <leader>t :TagbarToggle<CR>
+
+
+" for puting virtualenv in status line
+"%{virtualenv#statusline()}
