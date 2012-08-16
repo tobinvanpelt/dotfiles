@@ -46,3 +46,9 @@
 [submodule "bundle/virtualenv"]
 	path = bundle/virtualenv
 	url = git://github.com/jmcantrell/vim-virtualenv.git
+[submodule "bundle/csapprox"]
+	path = bundle/csapprox
+	url = git://github.com/vim-scripts/CSApprox.git
+[submodule "bundle/minibufexpl"]
+	path = bundle/minibufexpl
+	url = git://github.com/fholgado/minibufexpl.vim.git

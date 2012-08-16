@@ -9,16 +9,56 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
-" THVP - activate pathogen
+" only load if using gvim to create a snapshot of a colorscheme
+let g:pathogen_disabled = ['csapprox']
+"let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
+
+" INFECT the pathogen - wa ha ha ha
 call pathogen#infect()
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
+" Colors
+set t_Co=256
+colorscheme desert256
+syntax on
+
+" map \c to toggle line highlight
+nnoremap <Leader>c :set cursorline! <CR>
+
+autocmd WinEnter,BufEnter * setlocal cursorline
+autocmd WinLeave,BufLeave * setlocal nocursorline
+
+highlight LineNr ctermfg=229 ctermbg=None
+highlight CursorLineNr ctermfg=208 ctermbg=238 
+highlight CursorLine ctermfg=NONE ctermbg=238
+
+func! CursorInsertHighlight()
+    highlight CursorLine ctermbg=235
+    highlight CursorLineNr ctermbg=235
+endfunc
+
+func! CursorNormalHighlight()
+    highlight CursorLine ctermbg=238
+    highlight CursorLineNr ctermbg=238
+endfunc
+
+autocmd InsertEnter * call CursorInsertHighlight()
+autocmd InsertLeave * call CursorNormalHighlight()
+
+
+" this crazieness changes cursor on insert when in tmux
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=2\x7"
 endif
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
+" colored right edge
+highlight ColorColumn ctermbg=238
+set colorcolumn=80
+
+set hlsearch
 set nocompatible
 
 " allow backspacing over everything in insert mode
@@ -47,13 +87,6 @@ inoremap <C-U> <C-G>u<C-U>
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
-endif
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -99,8 +132,6 @@ if !exists(":DiffOrig")
 endif
 
 
-" THVP customizations start here
-
 set ai
 set ts=4
 set sts=4
@@ -111,11 +142,14 @@ set textwidth=79
 set ofu=syntaxcomplete#Complete
 autocmd ColorScheme * highlight Pmenu guibg=brown gui=bold
 set completeopt+=longest
-set number
+"set number
 set incsearch
 
-" Highlight cursor
-highlight CursorLine ctermbg=8 cterm=NONE
+" line numbers
+autocmd FileType python set number
+autocmd FileType javascript set number
+autocmd FileType html set number
+autocmd FileType css set number
 
 " HTML (tab width 2 chr, no wrapping)
 autocmd FileType html setlocal sw=2
@@ -139,9 +173,6 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-" map NERDTree to \p
-nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
 set hidden
 set virtualedit=all
@@ -174,22 +205,9 @@ set directory=~/.vim/tmp/swap//
 
 silent execute '!rm -f ~/.vim/tmp/backup/*'
 
-" map \c to toggle line highlight
-nnoremap <Leader>c :set cursorline! <CR>
-
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-
-autocmd BufEnter * setlocal cursorline
-autocmd BufHidden * setlocal cursorline
-
-"autocmd BufWinEnter * setlocal cursorline
-"set cursorline
-
-" colored right edge
-set colorcolumn=80
 
 " nerdtree
+nmap <silent> <Leader>p :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
 " syntastic
@@ -238,13 +256,13 @@ let g:pymode_breakpoint=0
 let g:pymode_run=0
 
 " Conque shell
-function! NoCursorHighlight(term)
+func! NoCursorHighlight(term)
     set nocursorline
-endfunction
+endfunc
 
-function! CursorHighlight(term)
+func! CursorHighlight(term)
     set cursorline
-endfunction
+endfunc
 
 call conque_term#register_function('after_startup', 'NoCursorHighlight')
 call conque_term#register_function('buffer_enter', 'NoCursorHighlight')
@@ -266,6 +284,12 @@ set timeoutlen=250
 " toggle tagbar
 nnoremap <silent> <leader>t :TagbarToggle<CR>
 
+" powerline
+let g:Powerline_symbols = 'unicode'
+call Pl#Theme#RemoveSegment('fileencoding')
+call Pl#Theme#RemoveSegment('fileformat')
 
-" for puting virtualenv in status line
-"%{virtualenv#statusline()}
+" minibufexpl
+map <Leader>b :TMiniBufExplorer<cr>
+let g:miniBufExplSplitBelow=0
+let g:miniBufExplShowBufNumbers = 0
