@@ -1,7 +1,6 @@
 let s:base_dir = expand('<sfile>:h') . '/..'
 let g:semicolon_console_visible = 0
 
-
 " toggle a breakpoint within a .py file
 func! semicolon#toggle_breakpoint()
     echo ''
@@ -95,6 +94,19 @@ func! semicolon#toggle_console()
 endfunc
 
 
+func! semicolon#select_ipython()
+    call s:open_console()
+    call system('tmux select-pane -t ' . g:semicolon_ipython_pane_id)
+endfunc
+
+
+func! semicolon#restart_ipython()
+    call system('tmux respawn-pane -k -t ' . g:semicolon_ipython_pane_id .
+                \ ' ipython')
+    call semicolon#select_ipython()
+endfunc
+
+
 "------------------------------------------------------------------------------
 
 " run current file if no .py is given.  Add any additional conque arguments
@@ -162,17 +174,27 @@ func! semicolon#run_test_prompt()
 endfunc
 
 
+func! semicolon#quit()
+    if exists('g:semicolon_debug_pane_id')
+        call system('tmux kill-pane -t ' . g:semicolon_debug_pane_id)
+    endif
+
+    if exists('g:semicolon_ipython_pane_id')
+        call system('tmux kill-pane -t ' . g:semicolon_ipython_pane_id)
+    endif
+endfunc
+
+
 "------------------------------------------------------------------------------
 
 " be sure running inside tmux
 func! s:check_tmux()
-    let running = $TMUX != ''
-    if !running
+    if !g:running_tmux
         echo "Semicolon must be run within a tmux session.
             \ (Use 'tmux new vim' to start one.)"
-    end
+    endif
 
-    return running
+    return g:running_tmux
 endfunc
 
 
@@ -255,21 +277,36 @@ func! s:make_debug()
         call system('tmux split-window -d -t console')
     endif
 
+    call system('tmux setw -t console remain-on-exit')
+
     let g:semicolon_debug_pane_id = s:get_last_pane_id('console')
 
     if $VIRTUAL_ENV != ''
         call s:send_cmd(g:semicolon_debug_pane_id, 'source ' .
                     \ $VIRTUAL_ENV . '/bin/activate')
-        call s:clear_pane(g:semicolon_debug_pane_id)
     endif
+    
+    call s:stamp_pane(g:semicolon_debug_pane_id, 'debug')
+    call s:clear_pane(g:semicolon_debug_pane_id)
 endfunc
 
 
 func! s:make_ipython()
-    call system('tmux split-window -d -t ' . g:semicolon_debug_pane_id .
-            \ ' ipython')
+    call system('tmux split-window -d -t ' . g:semicolon_debug_pane_id)
 
     let g:semicolon_ipython_pane_id = s:get_last_pane_id('console')
+
+    if $VIRTUAL_ENV != ''
+        call s:send_cmd(g:semicolon_ipython_pane_id, 'source ' .
+                    \ $VIRTUAL_ENV . '/bin/activate')
+    endif
+
+    call s:stamp_pane(g:semicolon_ipython_pane_id, 'ipython')       
+    echo system('tmux respawn-pane -k -t ' . g:semicolon_ipython_pane_id
+                \ . ' echo')
+
+    "call s:clear_pane(g:semicolon_ipython_pane_id)
+    "call s:send_cmd(g:semicolon_ipython_pane_id, 'ipython')
 endfunc
 
 
@@ -310,6 +347,12 @@ func! s:clear_pane(pane)
     call s:send_cmd(a:pane, 'clear')
     " wait for clear command to have completed before clearing
     call system('(sleep 1;tmux clear-history -t ' . a:pane . ') &')
+endfunc
+
+
+func! s:stamp_pane(pane, name)
+    let cmd = "echo -en '\\033]2;" . a:name . "\\033\\'"
+    call s:send_cmd(a:pane, cmd)
 endfunc
 
 

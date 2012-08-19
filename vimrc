@@ -290,6 +290,6 @@ call Pl#Theme#RemoveSegment('fileencoding')
 call Pl#Theme#RemoveSegment('fileformat')
 
 " minibufexpl
-map <Leader>b :MiniBufExplorer<cr>
+map <Leader>B :MiniBufExplorer<cr>
+map <Leader>b :TMiniBufExplorer<cr>
 let g:miniBufExplSplitBelow=0
-let g:miniBufExplShowBufNumbers = 0

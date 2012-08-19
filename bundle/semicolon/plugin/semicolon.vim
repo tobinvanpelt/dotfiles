@@ -5,6 +5,18 @@
 "let g:semicolon_loaded = 1
 
 
+if !exists('g:running_tmux')
+    let g:running_tmux = $TMUX != ''
+    if g:running_tmux
+        call system('tmux rename-window semicolon')
+        call system('tmux setw -t semicolon remain-on-exit')
+
+        silent !echo -en "\033]2;edit\\007"
+        redraw!
+    endif
+endif
+
+
 if !exists('g:semicolon_console')
    let g:semicolon_console = 'ipython --colors=linux'
 endif
@@ -24,8 +36,9 @@ endif
                                          
 " Key Commands
 
-"nnoremap ;c :SemicolonConsole<cr>
 nnoremap <silent> ;c :SemicolonToggleConsole<cr>
+nnoremap <silent> ;i :SemicolonIPython<cr>
+nnoremap <silent> ;r :SemicolonRestartIPython<cr>
            
 nnoremap ;x :SemicolonClearBreakpoints<cr>
 nnoremap ;b :SemicolonToggleBreakpointsList<cr>
@@ -33,8 +46,11 @@ nnoremap ;T :SemicolonRunAllTests<cr>
 
 
 " Commands
-"command! -nargs=* SemicolonConsole call semicolon#console(<f-args>)
-command! -nargs=* SemicolonToggleConsole call semicolon#toggle_console()
+command! SemicolonToggleConsole call semicolon#toggle_console()
+command! SemicolonIPython call semicolon#select_ipython()
+command! SemicolonRestartIPython call semicolon#restart_ipython()
+
+
 command! -nargs=* -complete=file SemicolonRun call semicolon#run(<f-args>)
 command! -nargs=* -complete=file SemicolonDebugTest call semicolon#debug_test(<f-args>)
 command! SemicolonRunAllTests call semicolon#run_all_tests()
@@ -47,4 +63,6 @@ augroup qfixtoggle
     autocmd!
     autocmd BufWinEnter quickfix call semicolon#set_qfix_win()
     autocmd BufWinLeave * call semicolon#unset_qfix_win()
+
+    autocmd VimLeave * call semicolon#quit()
 augroup end
