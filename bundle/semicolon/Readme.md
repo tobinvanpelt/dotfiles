@@ -1,41 +1,59 @@
 Semicolon
 =========
 
-Semicolon is a pytyhon IDE for vim. It incorporates a python console, testing
-using nose, debugging, and debugging tests.
+Semicolon is a pytyhon IDE for vim that relies on tmux. It incorporates a
+python/ipython console, testing using nose, debugging, and debugging tests.
 
-It colorizes where needed and relies on ipython for the console, nose for
-testing, and ipdb for debugging.
+To utilize semicolon vim must be run within tmux as:
 
+    $tmux new vim
+
+The IDE consists of vim as an editor and provides a console that includes a
+debugging console on the left and an general interactive python console on the
+right.
+
+NOTE: Compatible with virtualenv.
               
+Console:
+
+Debugging:
+
+Testing:
+
+
 Dependencies
 ------------
 
 Currently it has the following vim dependencies:
+    - tmux
 
-- Conque Shell: git://github.com/rson/vim-conque.git
+It has the following python dependencies.  Install using pip:
+    - nose
+    - ipython
+    - ipdb
 
-It has the following python dependencies.  Install with pip:
-
-- nose
-- ipython
-- ipdb
 
 Key Commands
 ------------
+Console:
 
-Breakpoints Management:
+- `;c`  toggles open/close the console split pane below vim
+
+
+Breakpoints:
 
 - `;;` toggles a breakpoint on/off for the current line in a .py file
-- `;b` toggles a list of all breakpoints in the quickfix buffer
+- `;b` toggles a window listing of all breakpoints in the quickfix buffer
 - `;x` delete all breakpoints in the current project
 
-Running and Debugging:
+Debugging:
 
-- `;c`  opens an ipython console with a vertical split
 - `;r`  runs the current .py file
 - `;rr` prompts for arguments and runs the current .py file
 - `;d`  debugs the current python test file (uses nosetests)
+
+Testing:
+
 - `;T`  runs all project tests
 - `;t`  runs the curretn python test file
 - `;tt` prompts for a python test to run from the current file
@@ -64,7 +82,8 @@ Commands
 - `:SemicolonRunFile` <file> <arguments> (run any python file)
 - `:SemicolonDebugTest` (run the current test file)
 
-- `:SemicolonConsole`
+- `:SemicolonToggleConsole`
+
 
 Configuration
 -------------
@@ -79,11 +98,11 @@ The default is:
 
 The project scope is defined as the current directory and all sub directories.
 
+
 Todos and Future Functionality
 ------------------------------
 
 - change name of breakpoint buffer
-- when leaving ConqueShell - the cursor line does not get highlighted
 - highlight breakpoints in file
 - travel to breakpoint when navigating up down in breakppoint window
 - possibly split breakpoint windows for preview purposes
@@ -93,5 +112,6 @@ Todos and Future Functionality
 - when deleting a breakpoint - preserve the yank buffer
 - color pass, fail, and error results while nosetest runs
 - debug just a specific test from the quickfix window
-- expand the project to be where a .semicolon folder is residing 
+- expand the project to be defines as location of a .semicolon folder
 
+- configure with python/ipyton or pdb/ipdb

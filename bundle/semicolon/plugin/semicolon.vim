@@ -23,7 +23,9 @@ endif
 
                                          
 " Key Commands
-nnoremap ;c :SemicolonConsole vsplit<cr>
+
+"nnoremap ;c :SemicolonConsole<cr>
+nnoremap <silent> ;c :SemicolonToggleConsole<cr>
            
 nnoremap ;x :SemicolonClearBreakpoints<cr>
 nnoremap ;b :SemicolonToggleBreakpointsList<cr>
@@ -31,7 +33,8 @@ nnoremap ;T :SemicolonRunAllTests<cr>
 
 
 " Commands
-command! -nargs=* SemicolonConsole call semicolon#console(<f-args>)
+"command! -nargs=* SemicolonConsole call semicolon#console(<f-args>)
+command! -nargs=* SemicolonToggleConsole call semicolon#toggle_console()
 command! -nargs=* -complete=file SemicolonRun call semicolon#run(<f-args>)
 command! -nargs=* -complete=file SemicolonDebugTest call semicolon#debug_test(<f-args>)
 command! SemicolonRunAllTests call semicolon#run_all_tests()
