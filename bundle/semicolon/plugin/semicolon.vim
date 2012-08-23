@@ -1,48 +1,16 @@
-"if exists('g:semicolon_loaded')
-"    finish
-"endif
+call semicolon#start()
 
-"let g:semicolon_loaded = 1
-
-
-if !exists('g:running_tmux')
-    let g:running_tmux = $TMUX != ''
-    if g:running_tmux
-        call system('tmux rename-window semicolon')
-        call system('tmux setw -t semicolon remain-on-exit')
-
-        silent !echo -en "\033]2;edit\\007"
-        redraw!
-    endif
-endif
-
-
-if !exists('g:semicolon_console')
-   let g:semicolon_console = 'ipython --colors=linux'
-endif
-
-if !exists('g:semicolon_breakpoint')
-    let g:semicolon_breakpoint = 'import ipdb; ipdb.set_trace()'
-endif
-
-if !exists('g:semicolon_tag')
-   let g:semicolon_tag = '# XXX Breakpoint'
-endif
-
-if !exists('g:semicolon_autosave_on_toggle')
-    let g:semicolon_autosave_on_toggle = 1
-endif
-
-                                         
 " Key Commands
 
-nnoremap <silent> ;c :SemicolonToggleConsole<cr>
+nnoremap <silent> ;; :SemicolonToggleConsole<cr>
 nnoremap <silent> ;i :SemicolonIPython<cr>
-nnoremap <silent> ;r :SemicolonRestartIPython<cr>
+nnoremap <silent> ;ii :SemicolonRestartIPython<cr>
            
 nnoremap ;x :SemicolonClearBreakpoints<cr>
 nnoremap ;b :SemicolonToggleBreakpointsList<cr>
+
 nnoremap ;T :SemicolonRunAllTests<cr>
+nnoremap ;R :call semicolon#run_prompt()<cr>
 
 
 " Commands

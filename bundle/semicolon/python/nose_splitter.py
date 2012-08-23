@@ -14,6 +14,10 @@ import nose
 from nose.plugins import Plugin
 
 
+COLORS = dict(black='30', red='31', green='32', yellow='33',
+        blue='34', magenta='35', cyan='36', white='37')
+
+
 class DummyStream:
     def write(self, *arg):
         pass
@@ -59,17 +63,26 @@ class ResultsSplitter(Plugin):
 
     def addError(self, test, err):
         self.error += 1
-        self.out_stream.write('E')
+        info = test.address()
+        self._write_color(info[1] + ':' + info[2], 'red')
+        self._write_color(' ERROR', 'red')
+        self._clear_line()
         self._stderr('error', err)
 
     def addFailure(self, test, err):
         self.failure += 1
-        self.out_stream.write('F')
+        info = test.address()
+        self._write_color(info[1] + ':' + info[2])
+        self._write_color(' fail', 'red')
+        self._clear_line()
         self._stderr('fail', err)
 
     def addSuccess(self, test):
         self.success += 1
-        self.out_stream.write('.')
+        info = test.address()
+        self._write_color(info[1] + ':' + info[2])
+        self._write_color(' pass', 'green')
+        self._clear_line()
 
     def begin(self):
         self.t0 = time.clock()
@@ -77,22 +90,22 @@ class ResultsSplitter(Plugin):
     def finalize(self, result):
         time_exp = time.clock() - self.t0
 
-        self.out_stream.writeln('')
-        num = self.success + self.failure + self.error
-        head = '%i tests (%.3f s):' % (num, time_exp)
+        self._clear_line()
+        self._write_color('-' * 70)
+        self._clear_line()
 
-        tail = ''
+        num = self.success + self.failure + self.error
+        self._write_color('%i tests (%.3f s):' % (num, time_exp))
+
         if self.failure > 0 or self.error > 0:
             if self.failure > 0:
-                tail += '  failures = %i' % self.failure
+                self._write_color('  failures = %i' % self.failure, 'red')
             if self.error > 0:
-                tail += '  errors = %i' % self.error
+                self._write_color('  errors = %i' % self.error, 'red')
         else:
-            tail += '  All passed.'
+            self._write_color('  All passed.', 'green')
 
-        res = head + tail
-        self.out_stream.writeln('-' * 70)
-        self.out_stream.writeln(res)
+        self._clear_line()
 
         try:
             self.err_stream.close()
@@ -101,8 +114,20 @@ class ResultsSplitter(Plugin):
 
     def setOutputStream(self, stream):
         self.out_stream = stream
+        self.out_stream.writeln('\n\n')
         self.out_stream.writeln('=' * 70)
         return DummyStream()
+
+    def _write_color(self, text, color=None):
+        if color is None:
+            text_code = text
+        else:
+            text_code = '\033[' + COLORS[color] + 'm' + text + '\033[0m'
+
+        self.out_stream.write(text_code)
+
+    def _clear_line(self):
+        self.out_stream.writeln('')
 
     def _calcScore(self, frame):
         """Calculates a score for this stack frame, so that can be used as a

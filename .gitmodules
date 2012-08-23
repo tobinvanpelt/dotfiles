@@ -40,9 +40,6 @@
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "bundle/conque"]
-	path = bundle/conque
-	url = git://github.com/rson/vim-conque.git
 [submodule "bundle/virtualenv"]
 	path = bundle/virtualenv
 	url = git://github.com/jmcantrell/vim-virtualenv.git

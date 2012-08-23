@@ -245,7 +245,7 @@ set splitright
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
-                                    
+
 " flake 8
 let g:syntastic_python_checker_args='--ignore=E70'
 
@@ -256,30 +256,30 @@ let g:pymode_breakpoint=0
 let g:pymode_run=0
 
 " Conque shell
-func! NoCursorHighlight(term)
-    set nocursorline
-endfunc
-
-func! CursorHighlight(term)
-    set cursorline
-endfunc
-
-call conque_term#register_function('after_startup', 'NoCursorHighlight')
-call conque_term#register_function('buffer_enter', 'NoCursorHighlight')
-call conque_term#register_function('buffer_leave', 'CursorHighlight')
-
-let g:ConqueTerm_StartMessages = 0
-let g:ConqueTerm_InsertOnEnter = 1
-let g:ConqueTerm_CWInsert = 1
-let g:ConqueTerm_CloseOnEnd = 1
-let g:ConqueTerm_ReadUnfocused = 1
-let g:ConqueTerm_TERM = 'xterm'
-
-" fixes long delay on single <esc> in conque - may effect others too
-set timeoutlen=250
+"func! NoCursorHighlight(term)
+"    set nocursorline
+"endfunc
+"
+"func! CursorHighlight(term)
+"    set cursorline
+"endfunc
+"
+"call conque_term#register_function('after_startup', 'NoCursorHighlight')
+"call conque_term#register_function('buffer_enter', 'NoCursorHighlight')
+"call conque_term#register_function('buffer_leave', 'CursorHighlight')
+"
+"let g:ConqueTerm_StartMessages = 0
+"let g:ConqueTerm_InsertOnEnter = 1
+"let g:ConqueTerm_CWInsert = 1
+"let g:ConqueTerm_CloseOnEnd = 1
+"let g:ConqueTerm_ReadUnfocused = 1
+"let g:ConqueTerm_TERM = 'xterm'
+"
+"" fixes long delay on single <esc> in conque - may effect others too
+"set timeoutlen=250
 
 " nose compiler 
-"autocmd BufNewFile,BufRead *.py compiler nose
+autocmd BufNewFile,BufRead *.py compiler nose
 
 " toggle tagbar
 nnoremap <silent> <leader>t :TagbarToggle<CR>

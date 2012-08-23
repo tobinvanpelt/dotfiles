@@ -1,5 +1,0 @@
-#!/bin/bash
-eval $@
-echo ''
-echo -e '\033[0;32mPress ANY KEY to continue.\033[0m'
-read -n 1

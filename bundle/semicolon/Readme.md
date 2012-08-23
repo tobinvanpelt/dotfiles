@@ -12,8 +12,23 @@ The IDE consists of vim as an editor and provides a console that includes a
 debugging console on the left and an general interactive python console on the
 right.
 
-NOTE: Compatible with virtualenv.
-              
+NOTE: 
+
+Compatible with virtualenv.
+
+Go to console window in other tmux window.
+
+Describe debug behavior.
+
+C-a ; - go back
+
+exit ipython respawns
+
+convenient terminal pane
+
+mark all files with license / copyright
+
+
 Console:
 
 Debugging:
@@ -37,26 +52,31 @@ Key Commands
 ------------
 Console:
 
-- `;c`  toggles open/close the console split pane below vim
+- `;;`  toggles open/close the console split pane below vim
+- `;i`  open console and select ipython
+- `;ii` reset ipython and select it
+
+(Note C-a ; is last pane)
 
 
 Breakpoints:
 
-- `;;` toggles a breakpoint on/off for the current line in a .py file
+- `;<space>` toggles a breakpoint on/off for the current line in a .py file
 - `;b` toggles a window listing of all breakpoints in the quickfix buffer
 - `;x` delete all breakpoints in the current project
 
 Debugging:
 
 - `;r`  runs the current .py file
-- `;rr` prompts for arguments and runs the current .py file
+- `;rr` prompts for arguments to run the current .py file
+- `;R`  prompts for filename and argument to run 
 - `;d`  debugs the current python test file (uses nosetests)
 
 Testing:
 
 - `;T`  runs all project tests
 - `;t`  runs the curretn python test file
-- `;tt` prompts for a python test to run from the current file
+- `;tt` prompts for nosetests to run in current test
 
 
 Additional useful quickfix commands:
@@ -71,6 +91,7 @@ Additional useful quickfix commands:
     
 Commands
 --------
+
 - `:SemicolonToggleBreakpoint` (at current line)
 - `:SemicolonClearBreakpoints` (within current project scope)
 - `:SemicolonToggleBreakpointsList` (for current project scope)
@@ -105,13 +126,13 @@ Todos and Future Functionality
 - change name of breakpoint buffer
 - highlight breakpoints in file
 - travel to breakpoint when navigating up down in breakppoint window
-- possibly split breakpoint windows for preview purposes
+- possibly split breakpoint windows for a preview
 - put the name of the next line to be executed in the breakpoint list
 
 - when running tests comment out all breakpoints
 - when deleting a breakpoint - preserve the yank buffer
-- color pass, fail, and error results while nosetest runs
+
 - debug just a specific test from the quickfix window
-- expand the project to be defines as location of a .semicolon folder
+- expand the concept of a project
 
 - configure with python/ipyton or pdb/ipdb
