@@ -14,6 +14,9 @@ right.
 
 NOTE: 
 
+Project is set to virtualenv project that is effect at start. Can't change once
+running.
+
 Compatible with virtualenv.
 
 Go to console window in other tmux window.
