@@ -1,21 +1,28 @@
 Installation:
 
-    git clone git@github.com:tobinvanpelt/vim-config.git .vim
+    git clone git@github.com:tobinvanpelt/dotfiles.git ~/.dot
 
 Create symlinks:
 
-    ln -s ~/.vim/vimrc ~/.vimrc
-    ln -s ~/.vim/gvimrc ~/.gvimrc
+    ln -s ~/.dot/profile ~/.profile
+    ln -s ~/.dot/zshrc ~/.zshrc
+    ln -s ~/.dot/oh-my-zsh ~/.oh-my-zsh
+    
+    ln -s ~/.dot/vim ~/.vim
+    ln -s ~/.dot/vimrc ~/.vimrc
+    ln -s ~/.dot/gvimrc ~/.gvimrc
 
-Switch to the `~/.vim` directory, and fetch submodules:
+    ln -s ~/.dot/tmux.conf ~/.tmux.conf
 
-    cd ~/.vim
+Switch to the `~/.dot/vim` directory, and fetch submodules:
+
+    cd ~/.dot/vim
     git submodule init
     git submodule update
 
-Updating a bundle:
+Updating a vim bundle (example):
 
-    cd ~/.vim/bundle/nerdtree
+    cd ~/.dot/vim/bundle/fugitive
     git pull origin master
 
 Updating all bundles:

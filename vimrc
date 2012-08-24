@@ -203,7 +203,7 @@ set backup
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
 
-silent execute '!rm -f ~/.vim/tmp/backup/*'
+call system('rm -f ~/.vim/tmp/backup/*(D)')
 
 
 " nerdtree
