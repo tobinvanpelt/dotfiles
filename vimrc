@@ -1,14 +1,3 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2011 Apr 15
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
 " only load if using gvim to create a snapshot of a colorscheme
 let g:pathogen_disabled = ['csapprox']
 "let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
@@ -293,3 +282,7 @@ call Pl#Theme#RemoveSegment('fileformat')
 map <Leader>B :MiniBufExplorer<cr>
 map <Leader>b :TMiniBufExplorer<cr>
 let g:miniBufExplSplitBelow=0
+
+
+" pydiction
+let g:pydiction_location = '~/.vim/bundle/pydiction'

@@ -7,9 +7,6 @@
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = http://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/supertab"]
-	path = vim/bundle/supertab
-	url = http://github.com/ervandew/supertab.git
 [submodule "vim/bundle/snipmate"]
 	path = vim/bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
@@ -25,9 +22,6 @@
 [submodule "vim/bundle/vim-powerline"]
 	path = vim/bundle/vim-powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
-[submodule "vim/bundle/python-mode"]
-	path = vim/bundle/python-mode
-	url = git://github.com/klen/python-mode.git
 [submodule "vim/bundle/vim-repeat"]
 	path = vim/bundle/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
@@ -49,3 +43,6 @@
 [submodule "vim/bundle/vim-semicolon"]
 	path = vim/bundle/vim-semicolon
 	url = git@github.com:tobinvanpelt/vim-semicolon.git
+[submodule "vim/bundle/pydiction"]
+	path = vim/bundle/pydiction
+	url = git://github.com/vim-scripts/Pydiction.git
