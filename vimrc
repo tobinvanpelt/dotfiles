@@ -1,3 +1,8 @@
+" Tobin's vimrc file 
+"
+
+set runtimepath=~/.dot/vim,$VIMRUNTIME,~/.dot/vim/after
+
 " only load if using gvim to create a snapshot of a colorscheme
 let g:pathogen_disabled = ['csapprox']
 "let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
