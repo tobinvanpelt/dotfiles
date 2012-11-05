@@ -15,6 +15,17 @@ set t_Co=256
 colorscheme desert256
 syntax on
 
+if has("gui_running")
+    if has("gui_win32")
+        set guifont=Lucida_Console:h9:cANSI
+
+        set guioptions-=m
+        set guioptions-=T
+        set guioptions-=r
+    endif                              
+endif
+
+
 " map \c to toggle line highlight
 nnoremap <Leader>c :set cursorline! <CR>
 
@@ -196,8 +207,15 @@ noremap <silent> ,mj <C-W>J
 
 " a few settings for swap and backup
 set backup
-set backupdir=~/.vim/tmp/backup//
-set directory=~/.vim/tmp/swap//
+
+if has('unix')
+    set backupdir=~/.vim/tmp/backup//
+    set directory=~/.vim/tmp/swap//
+else
+    set backupdir=~/.dot/vim/tmp/backup//
+    set directory=~/.dot/vim/tmp/swap//
+endif
+
 
 call system('rm -f ~/.vim/tmp/backup/*(D)')
 
