@@ -17,11 +17,14 @@ syntax on
 
 if has("gui_running")
     if has("gui_win32")
-        set guifont=Lucida_Console:h9:cANSI
+        "set guifont=Lucida_Console:h9:cANSI
+        set guifont=Consolas\ for\ Powerline\ FixedD:h9
 
-        set guioptions-=m
-        set guioptions-=T
-        set guioptions-=r
+        "set guioptions-=m
+        "set guioptions-=T
+        "set guioptions-=r
+
+        au GUIEnter * simalt ~x
     endif                              
 endif
 
@@ -255,10 +258,6 @@ command! HideJS let g:ctrlp_custom_ignore= '\.js$\|\.pyc$' | :ClearAllCtrlPCache
 set splitbelow
 set splitright
 
-" powerline
-set nocompatible   " Disable vi-compatibility
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show unicode glyphs
 
 " flake 8
 let g:syntastic_python_checker_args='--ignore=E70'
@@ -299,9 +298,19 @@ autocmd BufNewFile,BufRead *.py compiler nose
 nnoremap <silent> <leader>t :TagbarToggle<CR>
 
 " powerline
-let g:Powerline_symbols = 'unicode'
+if has('unix')
+    let g:Powerline_symbols = 'unicode'
+else
+    let g:Powerline_symbols = 'fancy'
+endif
+
 call Pl#Theme#RemoveSegment('fileencoding')
 call Pl#Theme#RemoveSegment('fileformat')
+
+set nocompatible   " Disable vi-compatibility
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show unicode glyphs
+
 
 " minibufexpl
 map <Leader>B :MiniBufExplorer<cr>
