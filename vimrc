@@ -1,7 +1,10 @@
 " Tobin's vimrc file 
 "
 
-set runtimepath=~/.dot/vim,$VIMRUNTIME,~/.dot/vim/after
+if !has('unix')
+    let $HOME="C:/home/tobin"
+endif
+
 
 " only load if using gvim to create a snapshot of a colorscheme
 let g:pathogen_disabled = ['csapprox']
@@ -20,9 +23,9 @@ if has("gui_running")
         "set guifont=Lucida_Console:h9:cANSI
         set guifont=Consolas\ for\ Powerline\ FixedD:h9
 
-        "set guioptions-=m
-        "set guioptions-=T
-        "set guioptions-=r
+        set guioptions-=m
+        set guioptions-=T
+        set guioptions-=r
 
         au GUIEnter * simalt ~x
     endif                              
