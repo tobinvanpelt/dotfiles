@@ -312,7 +312,6 @@ endif
 
 call Pl#Theme#RemoveSegment('fileencoding')
 call Pl#Theme#RemoveSegment('fileformat')
-	url = git://github.com/fholgado/minibufexpl.vim.git
 
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
