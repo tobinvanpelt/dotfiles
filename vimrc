@@ -250,12 +250,15 @@ command! Watch CoffeeCompile watch vert
 command! WatchBottom wincmd J | Watch
 
 " ctrlp
-let g:ctrlp_cmd = 'CtrlPBuffer'
+
+"let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_arg_map = 1
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_custom_ignore= '\.js$\|\.pyc$'
 command! ShowJS let g:ctrlp_custom_ignore= '\.pyc$' | :ClearAllCtrlPCaches
 command! HideJS let g:ctrlp_custom_ignore= '\.js$\|\.pyc$' | :ClearAllCtrlPCaches
+
+nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 
 " defualt split locations
 set splitbelow
@@ -309,16 +312,11 @@ endif
 
 call Pl#Theme#RemoveSegment('fileencoding')
 call Pl#Theme#RemoveSegment('fileformat')
+	url = git://github.com/fholgado/minibufexpl.vim.git
 
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
-
-
-" minibufexpl
-map <Leader>B :MiniBufExplorer<cr>
-map <Leader>b :TMiniBufExplorer<cr>
-let g:miniBufExplSplitBelow=0
 
 
 " pydiction

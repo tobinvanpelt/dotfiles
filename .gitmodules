@@ -28,9 +28,6 @@
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/minibufexpl.vim"]
-	path = vim/bundle/minibufexpl.vim
-	url = git://github.com/fholgado/minibufexpl.vim.git
 [submodule "vim/bundle/vim-semicolon"]
 	path = vim/bundle/vim-semicolon
 	url = git@github.com:tobinvanpelt/vim-semicolon.git
