@@ -10,7 +10,8 @@ set -o vi
 EDITOR=vim
 VISUAL=vim
 
-# personal bin on path
+# personal bin's on path
+PATH=$HOME/.dot/bin:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/share/python:$PATH
 PATH=$HOME/bin:$PATH
