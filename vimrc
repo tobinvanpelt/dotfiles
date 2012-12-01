@@ -318,5 +318,20 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
 
 
+" pydoc.vim
+let g:pydoc_cmd = 'python -m pydoc'
+let g:pydoc_open_cmd = 'vsplit'
+let g:pydoc_highlight = 0 
+
+
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
+let g:SuperTabLongestEnhanced = 1
+let g:SuperTabLongestHighlight = 1
+let g:SuperTabClosePreviewOnPopupClose = 1
+
+
+" pydiction
+"let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+"let &dictionary = '~/.vim/bundle/pydiction/complete-dict'
