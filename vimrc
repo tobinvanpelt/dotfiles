@@ -38,6 +38,7 @@ nnoremap <Leader>c :set cursorline! <CR>
 autocmd WinEnter,BufEnter * setlocal cursorline
 autocmd WinLeave,BufLeave * setlocal nocursorline
 
+highlight SignColumn ctermbg=None
 highlight LineNr ctermfg=229 ctermbg=None
 highlight CursorLineNr ctermfg=208 ctermbg=238 
 highlight CursorLine ctermfg=NONE ctermbg=238
@@ -159,6 +160,7 @@ set completeopt+=longest
 set incsearch
 
 " line numbers
+autocmd FileType vim set number
 autocmd FileType python set number
 autocmd FileType javascript set number
 autocmd FileType html set number
