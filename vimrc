@@ -31,6 +31,8 @@ if has("gui_running")
     endif                              
 endif
 
+" change Searh highligh
+highlight Search cterm=bold ctermfg=None ctermbg=222
 
 " map \c to toggle line highlight
 nnoremap <Leader>c :set cursorline! <CR>
@@ -41,7 +43,7 @@ autocmd WinLeave,BufLeave * setlocal nocursorline
 highlight SignColumn ctermbg=None
 highlight LineNr ctermfg=229 ctermbg=None
 highlight CursorLineNr ctermfg=208 ctermbg=238 
-highlight CursorLine ctermfg=NONE ctermbg=238
+highlight CursorLine ctermfg=None ctermbg=238
 
 func! CursorInsertHighlight()
     highlight CursorLine ctermbg=235
@@ -55,6 +57,11 @@ endfunc
 
 autocmd InsertEnter * call CursorInsertHighlight()
 autocmd InsertLeave * call CursorNormalHighlight()
+
+
+" for copying to OSX clipboard
+vmap <C-x> :!pbcopy<CR>  
+vmap <C-c> :w !pbcopy<CR><CR> 
 
 
 " this crazieness changes cursor on insert when in tmux
@@ -255,12 +262,14 @@ command! WatchBottom wincmd J | Watch
 
 "let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_arg_map = 1
-let g:ctrlp_dotfiles = 0
+let g:ctrlp_dotfiles = 1
 let g:ctrlp_custom_ignore= '\.js$\|\.pyc$'
 command! ShowJS let g:ctrlp_custom_ignore= '\.pyc$' | :ClearAllCtrlPCaches
 command! HideJS let g:ctrlp_custom_ignore= '\.js$\|\.pyc$' | :ClearAllCtrlPCaches
 
+nnoremap <silent> <leader>f :CtrlP<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
+nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
 
 " defualt split locations
 set splitbelow
@@ -276,31 +285,9 @@ let g:pymode_lint=0
 let g:pymode_breakpoint=0
 let g:pymode_run=0
 
-" Conque shell
-"func! NoCursorHighlight(term)
-"    set nocursorline
-"endfunc
-"
-"func! CursorHighlight(term)
-"    set cursorline
-"endfunc
-"
-"call conque_term#register_function('after_startup', 'NoCursorHighlight')
-"call conque_term#register_function('buffer_enter', 'NoCursorHighlight')
-"call conque_term#register_function('buffer_leave', 'CursorHighlight')
-"
-"let g:ConqueTerm_StartMessages = 0
-"let g:ConqueTerm_InsertOnEnter = 1
-"let g:ConqueTerm_CWInsert = 1
-"let g:ConqueTerm_CloseOnEnd = 1
-"let g:ConqueTerm_ReadUnfocused = 1
-"let g:ConqueTerm_TERM = 'xterm'
-"
-"" fixes long delay on single <esc> in conque - may effect others too
-"set timeoutlen=250
 
 " nose compiler 
-autocmd BufNewFile,BufRead *.py compiler nose
+"autocmd BufNewFile,BufRead *.py compiler nose
 
 " toggle tagbar
 nnoremap <silent> <leader>t :TagbarToggle<CR>

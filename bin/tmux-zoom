@@ -1,14 +1,1 @@
-#!/bin/bash
-# Zoom a pane by swaping the pane into a new window.
-
-tmux-unzoom
-
-tmux_zoom=$(tmux-pane)
-tmux new-window -d -n zoom 'clear && echo [ PANE ZOOMED ] && read'
-tmux swap-pane -s zoom
-tmux_stub=$(tmux-pane)
-
-tmux select-window -t zoom
-
-tmux set-environment TMUX_ZOOM "$tmux_zoom"
-tmux set-environment TMUX_STUB "$tmux_stub"
+/Users/tobin/.dot/tmux-utils/tmux-zoom

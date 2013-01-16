@@ -1,28 +1,23 @@
-# ls_colors
-alias ls="ls -G"
-export LSCOLORS=gxfxcxdxbxegedabagacad
+# universal profile file for setting env variables
 
-# start tmux with 256 colors
-alias tmux="tmux -2"
-
-# use vim editing in bash
-set -o vi
-EDITOR=vim
-VISUAL=vim
-
-# personal bin's on path
-PATH=$HOME/.dot/bin:$PATH
+# set PATH
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/share/python:$PATH
-PATH=$HOME/bin:$PATH
+PATH=$HOME/.dot/bin:$PATH
+export PATH
 
-# Setup for virtualenv and the wrapper
-WORKON_HOME=$HOME/.virtualenvs
-PROJECT_HOME=$HOME/i3dtech
-source virtualenvwrapper.sh
+# set editors
+export EDITOR=vim
+export VISUAL=vim
 
 # added for xcode compiling - THVP
-ARCHFLAGS="-arch i386 -arch x86_64"
+export ARCHFLAGS="-arch i386 -arch x86_64"
 
 # used for jsctags
-NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
+export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
+
+# virtualenv wrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/i3dtech
+source virtualenvwrapper.sh
+

@@ -6,6 +6,7 @@ Installation Notes
 Create symlinks:
 
     ln -s ~/.dot/profile ~/.profile
+    ln -s ~/.dot/zprofile ~/.zprofile
     ln -s ~/.dot/zshrc ~/.zshrc
     ln -s ~/.dot/oh-my-zsh ~/.oh-my-zsh
     
