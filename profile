@@ -3,6 +3,7 @@
 # set PATH
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/share/python:$PATH
+PATH=/usr/local/share/npm/bin:$PATH
 PATH=$HOME/.dot/bin:$PATH
 export PATH
 
@@ -19,5 +20,3 @@ export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
 # virtualenv wrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/i3dtech
-source virtualenvwrapper.sh
-

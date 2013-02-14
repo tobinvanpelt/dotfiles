@@ -7,8 +7,8 @@ endif
 
 
 " only load if using gvim to create a snapshot of a colorscheme
-let g:pathogen_disabled = ['csapprox']
-"let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
+"let g:pathogen_disabled = ['vim-semicolon']
+
 
 " INFECT the pathogen - wa ha ha ha
 call pathogen#infect()
