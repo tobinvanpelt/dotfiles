@@ -170,6 +170,7 @@ set incsearch
 autocmd FileType vim set number
 autocmd FileType python set number
 autocmd FileType javascript set number
+autocmd FileType coffee set number
 autocmd FileType html set number
 autocmd FileType css set number
 
