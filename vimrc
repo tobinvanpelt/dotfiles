@@ -32,10 +32,12 @@ if has("gui_running")
 endif
 
 " change Searh highligh
-highlight Search cterm=bold ctermfg=None ctermbg=222
+"highlight Search cterm=bold ctermfg=None ctermbg=222
+highlight Search cterm=bold ctermfg=None ctermbg=blue
 
 " map \c to toggle line highlight
-nnoremap <Leader>c :set cursorline! <CR>
+nnoremap <silent> <leader>c :set cursorline! <CR>
+nnoremap <silent> <leader>h :set hls! <CR>
 
 autocmd WinEnter,BufEnter * setlocal cursorline
 autocmd WinLeave,BufLeave * setlocal nocursorline
@@ -237,7 +239,7 @@ call system('rm -f ~/.vim/tmp/backup/*(D)')
 
 
 " nerdtree
-nmap <silent> <Leader>p :NERDTreeToggle<CR>
+nmap <silent> <leader>p :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
 " syntastic
