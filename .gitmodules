@@ -47,5 +47,5 @@
 	path = vim/bundle/xterm-color-table
 	url = git://github.com/guns/xterm-color-table.vim.git
 [submodule "vim/bundle/snipmate-snippets"]
-    path = vim/bundle/snipmate-snippets
-    url = git://github.com/honza/snipmate-snippets.git
+	path = vim/bundle/snipmate-snippets
+	url = git://github.com/honza/snipmate-snippets.git
