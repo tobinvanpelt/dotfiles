@@ -1,0 +1,100 @@
+# keybindings
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
+
+# window splits
+bind | split-window -h
+bind - split-window -v
+
+# only
+bind o kill-pane -a
+
+
+# repeat timing
+set -g repeat-time 200
+
+# pane movement
+bind -r h select-pane -L
+bind -r j select-pane -D
+bind -r k select-pane -U
+bind -r l select-pane -R
+
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+bind < rotate-window -D
+bind > rotate-window -U
+bind / next-layout
+
+
+# colors
+set -g default-terminal "screen-256color"
+
+set -g status-fg white
+set -g status-bg colour235
+
+setw -g window-status-fg blue
+setw -g window-status-bg default
+setw -g window-status-format '#I:#W'
+
+setw -g window-status-current-fg red
+setw -g window-status-current-bg default
+setw -g window-status-current-attr bright
+
+setw -g window-status-activity-attr none
+
+set -g pane-border-fg white
+set -g pane-border-bg default
+set -g pane-active-border-fg yellow
+set -g pane-active-border-bg default
+
+set -g message-fg white
+set -g message-bg black
+set -g message-attr bright
+
+
+# status lines
+set -g status-left-length 60
+set -g status-left "#h #[fg=green][#S] #[fg=yellow]#W:#T"
+set -g status-utf8 on
+
+
+# 15% | 28 Nov 18:15
+set -g status-right "#[fg=cyan]%d %b %R"
+
+
+# other settings
+set -sg escape-time 1
+
+set -g base-index 1
+setw -g pane-base-index 1
+
+setw -g mode-mouse on
+set -g mouse-select-pane on
+set -g mouse-resize-pane on
+set -g mouse-select-window on
+
+setw -g monitor-activity on
+set -g visual-activity on
+
+set -g status-justify centre
+setw -g mode-keys vi
+set -g status-interval 10
+
+
+# tmux-utils zoom functionality
+# Need to have tmux-utils library on $PATH for these bindings
+unbind Up
+bind Up run-shell tmux-zoom
+
+unbind Down
+bind Down run-shell tmux-unzoom
+
+# Copy mode
+bind -t vi-copy v begin-selection
+bind -t vi-copy y copy-selection
+bind -t vi-copy Escape cancel
+
