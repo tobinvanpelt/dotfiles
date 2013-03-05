@@ -57,7 +57,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%} ✓"
 export VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_PYTHON_ORIGINAL
 
 #soruce virtualenv
-source virtualenvwrapper.sh
+source virtualenvwrapper.sh 2> /dev/null
 
 # initializes the semicolon command
 . ~/.vim/bundle/vim-semicolon/scripts/semicolon_init
