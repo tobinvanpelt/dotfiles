@@ -16,6 +16,8 @@ Create symlinks:
 
     ln -s ~/.dot/tmux.conf ~/.tmux.conf
 
+(NOTE: link to the appropriate distribution, e.g. profile.osx)
+
 Switch to the `~/.dot` directory, and fetch submodules:
 
     cd ~/.dot

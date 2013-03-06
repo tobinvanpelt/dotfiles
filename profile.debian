@@ -20,3 +20,8 @@ export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
 # virtualenv wrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/i3dtech
+
+export PYTHONPATH=/home/h2ometrics/h2oserver
+
+#/usr/bin/keychain --clear $HOME/.ssh/id_rsa
+#source $HOME/.keychain/$HOST-sh
