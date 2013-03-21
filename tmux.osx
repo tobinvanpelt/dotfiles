@@ -11,14 +11,11 @@ bind - split-window -v
 bind o kill-pane -a
 
 
-# repeat timing
-set -g repeat-time 200
-
 # pane movement
-bind -r h select-pane -L
-bind -r j select-pane -D
-bind -r k select-pane -U
-bind -r l select-pane -R
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
 
 bind -r H resize-pane -L 5
 bind -r J resize-pane -D 5

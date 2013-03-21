@@ -87,11 +87,6 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -225,6 +220,8 @@ noremap <silent> ,mj <C-W>J
 
 " a few settings for swap and backup
 set backup
+set writebackup
+set swapfile
 
 if has('unix')
     set backupdir=~/.vim/tmp/backup//
@@ -234,9 +231,9 @@ else
     set directory=~/.dot/vim/tmp/swap//
 endif
 
-
 call system('rm -f ~/.vim/tmp/backup/*(D)')
 
+" -----------------------------------------------------------------------------
 
 " nerdtree
 nmap <silent> <leader>p :NERDTreeToggle<CR>
@@ -253,7 +250,7 @@ autocmd FileType coffee setlocal ts=2
 autocmd FileType coffee setlocal sts=2
 
 let coffee_make_options = '--bare'
-au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
+"au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 let coffee_compile_vert = 1
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
@@ -323,7 +320,3 @@ let g:SuperTabLongestEnhanced = 1
 let g:SuperTabLongestHighlight = 1
 let g:SuperTabClosePreviewOnPopupClose = 1
 
-
-" pydiction
-"let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
-"let &dictionary = '~/.vim/bundle/pydiction/complete-dict'
