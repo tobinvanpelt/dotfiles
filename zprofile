@@ -9,5 +9,8 @@ alias svim="vim --servername VIM"
 # start tmux with 256 colors
 alias tmux="tmux -2"
 
+# veewee for vagrant alias
+alias veewee='bundle exec veewee'
+
 # use vim editing in bash
 set -o vi     
