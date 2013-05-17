@@ -378,3 +378,6 @@ command! -range=% FormatXML <line1>,<line2>call DoFormatXML()
 nmap <silent> <leader>x :%FormatXML<CR>
 vmap <silent> <leader>x :FormatXML<CR>
 
+" UltiSnips 
+let g:UltiSnipsSnippetsDir = "~/.vim/snippets"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
