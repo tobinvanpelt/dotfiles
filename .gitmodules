@@ -1,9 +1,9 @@
 [submodule "vim/bundle/vim-semicolon"]
 	path = vim/bundle/vim-semicolon
-	url = https://github.com:tobinvanpelt/vim-semicolon.git
+	url = https://github.com/tobinvanpelt/vim-semicolon.git
 [submodule "tmux-utils"]
 	path = tmux-utils
-	url = https://github.com:tobinvanpelt/tmux-utils.git
+	url = https://github.com/tobinvanpelt/tmux-utils.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
