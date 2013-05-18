@@ -6,7 +6,7 @@
 	url = git://github.com/tobinvanpelt/tmux-utils.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
-	url = git@github.com:scrooloose/nerdtree.git
+	url = git://github.com/scrooloose/nerdtree.git
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
 	url = git://github.com/kien/ctrlp.vim.git
@@ -27,7 +27,7 @@
 	url = git://github.com/tpope/vim-surround.git
 [submodule "vim/bundle/vim-semicolon"]
 	path = vim/bundle/vim-semicolon
-	url = git@github.com:tobinvanpelt/vim-semicolon.git
+	url = git://github.com/tobinvanpelt/vim-semicolon.git
 [submodule "vim/bundle/pydiction"]
 	path = vim/bundle/pydiction
 	url = git://github.com/vim-scripts/Pydiction.git
@@ -63,4 +63,4 @@
 	url = git://github.com/SirVer/ultisnips.git
 [submodule "vim/bundle/vim-coffee-script"]
 	path = vim/bundle/vim-coffee-script
-	url = git@github.com:tobinvanpelt/vim-coffee-script.git
+	url = git://github.com/tobinvanpelt/vim-coffee-script.git
