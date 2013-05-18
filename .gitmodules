@@ -1,9 +1,12 @@
+[submodule "vim/bundle/vim-semicolon"]
+	path = vim/bundle/vim-semicolon
+	url = git@github.com:tobinvanpelt/vim-semicolon.git
+[submodule "tmux-utils"]
+	path = tmux-utils
+	url = git@github.com:tobinvanpelt/tmux-utils.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule "tmux-utils"]
-	path = tmux-utils
-	url = git://github.com/tobinvanpelt/tmux-utils.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
@@ -25,9 +28,6 @@
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/vim-semicolon"]
-	path = vim/bundle/vim-semicolon
-	url = git://github.com/tobinvanpelt/vim-semicolon.git
 [submodule "vim/bundle/pydiction"]
 	path = vim/bundle/pydiction
 	url = git://github.com/vim-scripts/Pydiction.git

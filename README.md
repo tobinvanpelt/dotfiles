@@ -16,6 +16,9 @@ Create symlinks:
 
     ln -s ~/.dot/tmux.conf ~/.tmux.conf
 
+    ln -s ~/.dot/gitconfig ~/.gitconfig
+    ln -s ~/.dot/gitignore ~/.gitignore
+
 (NOTE: link to the appropriate distribution, e.g. profile.osx)
 
 Switch to the `~/.dot` directory, and fetch submodules:
