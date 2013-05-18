@@ -32,7 +32,3 @@ Updating a specific submodule (example):
 Updating all submodules:
 
     git submodule foreach git pull origin master
-
-Bin directory:
-
-    Add ~/.dot/bin to $PATH.
