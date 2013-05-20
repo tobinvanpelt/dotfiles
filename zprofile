@@ -12,5 +12,8 @@ alias tmux="tmux -2"
 # veewee for vagrant alias
 alias veewee='bundle exec veewee'
 
+# sup for supervisorctl alias
+alias sup='supervisorctl'
+
 # use vim editing in bash
 set -o vi     
