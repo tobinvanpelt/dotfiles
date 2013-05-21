@@ -64,3 +64,6 @@
 [submodule "vim/bundle/vim-coffee-script"]
 	path = vim/bundle/vim-coffee-script
 	url = https://github.com/tobinvanpelt/vim-coffee-script.git
+[submodule "vim/bundle/salt-vim"]
+	path = vim/bundle/salt-vim
+	url = https://github.com/saltstack/salt-vim.git
