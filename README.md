@@ -19,6 +19,8 @@ Create symlinks:
     ln -s ~/.dot/gitconfig ~/.gitconfig
     ln -s ~/.dot/gitignore ~/.gitignore
 
+    ln -s ~/.dot/config/flake8 ~/.config/flake8
+
 (NOTE: link to the appropriate distribution, e.g. profile.osx)
 
 Switch to the `~/.dot` directory, and fetch submodules:
