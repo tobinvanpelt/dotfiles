@@ -10,6 +10,3 @@ export PATH
 # set editors
 export EDITOR=vim
 export VISUAL=vim
-
-# added by salt
-export PYTHONPATH=/home/tobin/h2oserver
