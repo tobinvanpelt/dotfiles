@@ -251,7 +251,7 @@ autocmd FileType coffee setlocal ts=2
 autocmd FileType coffee setlocal sts=2
 
 let coffee_make_options = '--bare'
-"au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
+" au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 let coffee_compile_vert = 1
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
