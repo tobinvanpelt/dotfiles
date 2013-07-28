@@ -251,7 +251,7 @@ autocmd FileType coffee setlocal ts=2
 autocmd FileType coffee setlocal sts=2
 
 let coffee_make_options = '--bare'
-" au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
+"au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 let coffee_compile_vert = 1
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
@@ -291,8 +291,15 @@ let g:pymode_run=0
 "autocmd BufNewFile,BufRead *.py compiler nose
 
 " toggle tagbar
-nnoremap <silent> <leader>t :TagbarToggle<CR>
+function! OpenTagbar()
+    setlocal nocursorline
+    call tagbar#OpenWindow('fj')
+    setlocal cursorline
+endfunction
 
+nnoremap <silent> <leader>t :call OpenTagbar()<CR>
+nnoremap <silent> <leader>T :TagbarClose<CR>
+                               
 " powerline
 if has('unix')
     let g:Powerline_symbols = 'unicode'

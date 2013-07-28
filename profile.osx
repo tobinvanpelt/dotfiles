@@ -16,7 +16,7 @@ export VISUAL=vim
 export ARCHFLAGS="-arch i386 -arch x86_64"
 
 # used for jsctags
-export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
+export NODE_PATH=/usr/local/lib/node/:$NODE_PATH
 
 # virtualenv wrapper
 export WORKON_HOME=$HOME/.virtualenvs
