@@ -236,6 +236,11 @@ call system('rm -f ~/.vim/tmp/backup/*\~(D)')
 
 " -----------------------------------------------------------------------------
 
+command! Vimrc edit ~/.vimrc 
+
+" easytags
+let g:easytags_dynamic_files = 2
+
 " nerdtree
 nmap <silent> <leader>p :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
@@ -290,7 +295,9 @@ let g:pymode_run=0
 " nose compiler 
 "autocmd BufNewFile,BufRead *.py compiler nose
 
-" toggle tagbar
+" --- tagbar ---
+let g:tagbar_sort = 0
+
 function! OpenTagbar()
     setlocal nocursorline
     call tagbar#OpenWindow('fj')
@@ -388,3 +395,7 @@ vmap <silent> <leader>x :FormatXML<CR>
 " UltiSnips 
 let g:UltiSnipsSnippetsDir = "~/.vim/snippets"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+
+" enable project vimrc files
+" set exrc
+" set secure
