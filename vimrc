@@ -236,7 +236,11 @@ call system('rm -f ~/.vim/tmp/backup/*\~(D)')
 
 " -----------------------------------------------------------------------------
 
+" quick vimrc access
 command! Vimrc edit ~/.vimrc 
+
+" clear search when refreshing
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " easytags
 let g:easytags_dynamic_files = 2
