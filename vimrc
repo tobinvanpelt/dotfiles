@@ -277,9 +277,11 @@ let g:ctrlp_custom_ignore= '\.js$\|\.pyc$'
 command! ShowJS let g:ctrlp_custom_ignore= '\.pyc$' | :ClearAllCtrlPCaches
 command! HideJS let g:ctrlp_custom_ignore= '\.js$\|\.pyc$' | :ClearAllCtrlPCaches
 
+let g:ctrlp_mruf_exclude = '\/deploy\/'
+
 nnoremap <silent> <leader>f :CtrlP<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
-nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
+"nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
 
 " defualt split locations
 set splitbelow
