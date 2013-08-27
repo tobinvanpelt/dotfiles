@@ -277,7 +277,8 @@ let g:ctrlp_custom_ignore= '\.js$\|\.pyc$'
 command! ShowJS let g:ctrlp_custom_ignore= '\.pyc$' | :ClearAllCtrlPCaches
 command! HideJS let g:ctrlp_custom_ignore= '\.js$\|\.pyc$' | :ClearAllCtrlPCaches
 
-let g:ctrlp_mruf_exclude = '\/deploy\/'
+" keeps ctrlp away from build dirs
+let g:ctrlp_mruf_exclude = '\/build\/'
 
 nnoremap <silent> <leader>f :CtrlP<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
