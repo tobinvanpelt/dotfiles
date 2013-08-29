@@ -268,6 +268,11 @@ au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 command! Watch CoffeeCompile watch vert
 command! WatchBottom wincmd J | Watch
 
+" indentation for coffeescript
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+
 " ctrlp
 
 "let g:ctrlp_cmd = 'CtrlPBuffer'
