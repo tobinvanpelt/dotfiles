@@ -20,6 +20,7 @@ Create symlinks:
     ln -s ~/.dot/gitignore ~/.gitignore
 
     ln -s ~/.dot/config/flake8 ~/.config/flake8
+    ln -s ~/.dot/ipython_config.py ~/.ipython/profile_default/ipython_config.py
 
 (NOTE: link to the appropriate distribution, e.g. profile.osx)
 

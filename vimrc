@@ -254,6 +254,9 @@ let g:syntastic_check_on_open=1
 let g:syntastic_loc_list_height=4
 let g:syntastic_javascript_checker='jsl'
 
+" *.ipy files
+autocmd BufNewFile,BufRead *.ipy set filetype=python
+
 " coffee-script
 autocmd FileType coffee setlocal sw=2
 autocmd FileType coffee setlocal ts=2
