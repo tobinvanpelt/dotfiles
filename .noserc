@@ -1,0 +1,5 @@
+[nosetests]
+verbosity=2
+rednose=1
+force-color=1
+with-doctest=1

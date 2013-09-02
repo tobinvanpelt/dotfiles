@@ -1,34 +1,22 @@
 Installation Notes
-------------------
+==================
 
-    git clone git@github.com:tobinvanpelt/dotfiles.git ~/.dot
+1. git clone git@github.com:tobinvanpelt/dotfiles.git ~/.dot
+2. cd ~/.dot
+3. git submodule init
+4. git submodule update
 
-Create symlinks:
 
-    ln -s ~/.dot/profile ~/.profile
-    ln -s ~/.dot/zprofile ~/.zprofile
-    ln -s ~/.dot/zshrc ~/.zshrc
-    ln -s ~/.dot/oh-my-zsh ~/.oh-my-zsh
-    
-    ln -s ~/.dot/vim ~/.vim
-    ln -s ~/.dot/vimrc ~/.vimrc
-    ln -s ~/.dot/gvimrc ~/.gvimrc
+Create Symlinks
+---------------
 
-    ln -s ~/.dot/tmux.conf ~/.tmux.conf
+Edit and run the init_links script.
 
-    ln -s ~/.dot/gitconfig ~/.gitconfig
-    ln -s ~/.dot/gitignore ~/.gitignore
+NOTE: link to the appropriate distribution, e.g. profile.osx)
 
-    ln -s ~/.dot/config/flake8 ~/.config/flake8
-    ln -s ~/.dot/ipython_config.py ~/.ipython/profile_default/ipython_config.py
 
-(NOTE: link to the appropriate distribution, e.g. profile.osx)
-
-Switch to the `~/.dot` directory, and fetch submodules:
-
-    cd ~/.dot
-    git submodule init
-    git submodule update
+Update Submodules
+-----------------
 
 Updating a specific submodule (example):
 
