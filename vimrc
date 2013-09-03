@@ -298,7 +298,8 @@ set splitright
 
 
 " flake 8
-let g:syntastic_python_checker_args='--ignore=E70'
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E126,E127,E128,E701,E501'
 
 " python mode
 " turn off lint, breakpoint, and run
