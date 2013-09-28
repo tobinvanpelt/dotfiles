@@ -1,5 +1,13 @@
 " Tobin's vimrc file 
 "
+" Special Note: To profile see: http://stackoverflow.com/a/12216578/670654
+"
+" :profile start profile.log
+" :profile func *
+" :profile file *
+" (do work)
+" :profile pause
+" :noautocmd qall!
 
 if !has('unix')
     let $HOME="C:/home/tobin"
@@ -12,6 +20,7 @@ endif
 
 " INFECT the pathogen - wa ha ha ha
 call pathogen#infect()
+
 
 " Colors
 set t_Co=256
@@ -299,7 +308,7 @@ set splitright
 
 " flake 8
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_args='--ignore=E126,E127,E128,E701,E501'
+let g:syntastic_python_flake8_args='--ignore=E126,E127,E128,E701,E702'
 
 " python mode
 " turn off lint, breakpoint, and run
