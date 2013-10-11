@@ -14,8 +14,8 @@ if !has('unix')
 endif
 
 
-" only load if using gvim to create a snapshot of a colorscheme
-"let g:pathogen_disabled = ['vim-semicolon']
+" disbale plugins
+let g:pathogen_disabled = ['vim-semicolon']
 
 
 " INFECT the pathogen - wa ha ha ha
@@ -45,12 +45,35 @@ endif
 highlight Search cterm=bold ctermfg=None ctermbg=blue
 
 " map some leaders quick keys
-nnoremap <silent> <leader>c :set cursorline! <CR>
+"nnoremap <silent> <leader>c :set cursorline! <CR>
+nnoremap <silent> <leader>c :call SetCursorline()<CR>
 nnoremap <silent> <leader>h :set hls! <CR>
 nnoremap <silent> <leader>= :set paste! <CR>
 
-autocmd WinEnter,BufEnter * setlocal cursorline
+let g:cursorline = 1
+"autocmd WinEnter,BufEnter * setlocal cursorline
+"autocmd WinLeave,BufLeave * setlocal nocursorline
+autocmd WinEnter,BufEnter * call UpdateCursorLine()
 autocmd WinLeave,BufLeave * setlocal nocursorline
+
+
+func! SetCursorline()
+    setlocal cursorline!
+    if g:cursorline
+        let g:cursorline = 0
+    else
+        let g:cursorline = 1
+    end
+endfunc
+
+
+func! UpdateCursorLine()
+    if g:cursorline
+        setlocal cursorline
+    endif
+endfunc
+    
+
 
 highlight SignColumn ctermbg=None
 highlight LineNr ctermfg=229 ctermbg=None
@@ -251,7 +274,7 @@ command! Vimrc edit ~/.vimrc
 " clear search when refreshing
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" easytags
+" easytagsder
 let g:easytags_dynamic_files = 2
 
 " nerdtree
@@ -322,15 +345,19 @@ let g:pymode_run=0
 
 " --- tagbar ---
 let g:tagbar_sort = 0
+let g:tagbar_autoclose = 1
 
-function! OpenTagbar()
-    setlocal nocursorline
-    call tagbar#OpenWindow('fj')
-    setlocal cursorline
-endfunction
+" used for setting cursorline when moving to tagbar window
+"function! OpenTagbar()
+"    setlocal nocursorline
+"    call tagbar#OpenWindow('fj')
+"    setlocal cursorline
+"endfunction
 
-nnoremap <silent> <leader>t :call OpenTagbar()<CR>
-nnoremap <silent> <leader>T :TagbarClose<CR>
+"nnoremap <silent> <leader>t :call OpenTagbar()<CR>
+
+nnoremap <silent> <leader>t :TagbarToggle<CR>
+"nnoremap <silent> <leader>T :TagbarClose<CR>
                                
 " powerline
 if has('unix')
