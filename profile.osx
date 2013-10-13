@@ -21,3 +21,6 @@ export NODE_PATH=/usr/local/lib/node/:$NODE_PATH
 # virtualenv wrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/i3dtech
+
+# use mvim when possible - faster
+alias vim='mvim -v'
