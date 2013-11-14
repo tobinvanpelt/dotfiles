@@ -281,10 +281,19 @@ let g:easytags_dynamic_files = 2
 nmap <silent> <leader>p :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
+" flake 8
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E126,E127,E128,E701,E702,E501'
+
 " syntastic
 let g:syntastic_check_on_open=1 
 let g:syntastic_loc_list_height=4
 let g:syntastic_javascript_checker='jsl'
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+
+nmap <silent> <leader>E :SyntasticToggleMode<CR>
+nmap <silent> <leader>e :SyntasticCheck<CR>
 
 " *.ipy files
 autocmd BufNewFile,BufRead *.ipy set filetype=python
@@ -328,10 +337,6 @@ nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
 set splitbelow
 set splitright
 
-
-" flake 8
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_args='--ignore=E126,E127,E128,E701,E702,E501'
 
 " python mode
 " turn off lint, breakpoint, and run
