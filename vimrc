@@ -288,7 +288,6 @@ let g:syntastic_python_flake8_args='--ignore=E126,E127,E128,E701,E702,E501'
 " syntastic
 let g:syntastic_check_on_open=1 
 let g:syntastic_loc_list_height=4
-let g:syntastic_javascript_checker='jsl'
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 
