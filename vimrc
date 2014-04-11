@@ -271,6 +271,9 @@ call system('rm -f ~/.vim/tmp/backup/*\~(D)')
 " quick vimrc access
 command! Vimrc edit ~/.vimrc 
 
+" remove ^M in dos files
+command! FileToUnix %s///g
+
 " clear search when refreshing
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
@@ -305,8 +308,6 @@ autocmd FileType coffee setlocal sts=2
 let coffee_make_options = '--bare'
 "au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 let coffee_compile_vert = 1
-au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
-au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 command! Watch CoffeeCompile watch vert
 command! WatchBottom wincmd J | Watch
@@ -314,7 +315,6 @@ command! WatchBottom wincmd J | Watch
 " indentation for coffeescript
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-
 
 " ctrlp
 

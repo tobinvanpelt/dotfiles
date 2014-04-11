@@ -7,17 +7,6 @@ bind C-a send-prefix
 bind | split-window -h
 bind - split-window -v
 
-# fast pane movement
-bind 1 select-pane -t 1
-bind 2 select-pane -t 2
-bind 3 select-pane -t 3
-bind 4 select-pane -t 4
-bind 5 select-pane -t 5
-bind 6 select-pane -t 6
-bind 7 select-pane -t 7
-bind 8 select-pane -t 8
-bind 9 select-pane -t 9
-
 # pane movement
 bind h select-pane -L
 bind j select-pane -D
