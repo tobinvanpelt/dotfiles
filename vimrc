@@ -24,8 +24,9 @@ call pathogen#infect()
 
 " Colors
 set t_Co=256
-colorscheme desert256
 syntax on
+colorscheme desert256
+set background=dark
 
 if has("gui_running")
     if has("gui_win32")
@@ -220,6 +221,15 @@ autocmd FileType xhtml setlocal textwidth=0
 autocmd FileType css setlocal sw=2
 autocmd FileType css setlocal ts=2
 autocmd FileType css setlocal sts=2
+
+" js tabs
+autocmd FileType javascript setlocal sw=2
+autocmd FileType javascript setlocal ts=2
+autocmd FileType javascript setlocal sts=2
+
+" for javascript-indent
+"set background=dark
+
 
 " auto completes
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -455,3 +465,6 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 " enable project vimrc files
 " set exrc
 " set secure
+
+" enter with indent (used with demilitMate)
+imap <C-c> <CR><Esc>O
