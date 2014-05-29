@@ -12,6 +12,9 @@ export PATH
 export EDITOR=vim
 export VISUAL=vim
 
+# set nosetests
+export NOSE_REDNOSE=1
+
 # added for xcode compiling - THVP
 export ARCHFLAGS="-arch i386 -arch x86_64"
 

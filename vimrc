@@ -14,8 +14,40 @@ if !has('unix')
 endif
 
 
-" disbale plugins
-let g:pathogen_disabled = ['vim-semicolon']
+"enabled  plugins
+            "\ 'ctrlp.vim',
+            "\ 'nerdtree',
+            "\ 'vim-powerline',
+            "\ 'ultisnips',
+            "\ 'syntastic',
+            "\ 'supertab',
+            "\ 'jedi-vim',
+
+"disabled  plugins
+let g:pathogen_disabled =[
+            \ 'vim-fugitive',
+            \ 'tagbar',
+            \ 'coffeetags',
+            \ 'delimitMate',
+            \ 'handlebars',
+            \ 'salt-vim',
+            \ 'tlib_vim',
+            \ 'utils',
+            \ 'vim-addon-mw-utils',
+            \ 'vim-autoclose',
+            \ 'vim-coffee-script',
+            \ 'vim-easytags',
+            \ 'vim-indent-guides',
+            \ 'vim-javascript',
+            \ 'vim-javascript-syntax',
+            \ 'vim-less',
+            \ 'vim-markdown',
+            \ 'vim-misc',
+            \ 'vim-repeat',
+            \ 'vim-semicolon',
+            \ 'vim-surround',
+            \ 'vim-virtualenv',
+            \ 'xterm-color-table']
 
 
 " INFECT the pathogen - wa ha ha ha
@@ -294,19 +326,6 @@ let g:easytags_dynamic_files = 2
 nmap <silent> <leader>p :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
-" flake 8
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_args='--ignore=E126,E127,E128,E701,E702,E501'
-
-" syntastic
-let g:syntastic_check_on_open=1 
-let g:syntastic_loc_list_height=4
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-
-nmap <silent> <leader>E :SyntasticToggleMode<CR>
-nmap <silent> <leader>e :SyntasticCheck<CR>
-
 " *.ipy files
 autocmd BufNewFile,BufRead *.ipy set filetype=python
 
@@ -357,35 +376,77 @@ let g:pymode_run=0
 " nose compiler 
 "autocmd BufNewFile,BufRead *.py compiler nose
 
-" --- tagbar ---
+
+
+
+" --- tagbar ------------------------------------------------------------------
 let g:tagbar_sort = 0
 let g:tagbar_autoclose = 1
 
-" used for setting cursorline when moving to tagbar window
-"function! OpenTagbar()
-"    setlocal nocursorline
-"    call tagbar#OpenWindow('fj')
-"    setlocal cursorline
-"endfunction
-
-"nnoremap <silent> <leader>t :call OpenTagbar()<CR>
-
 nnoremap <silent> <leader>t :TagbarToggle<CR>
-"nnoremap <silent> <leader>T :TagbarClose<CR>
                                
-" powerline
-if has('unix')
-    let g:Powerline_symbols = 'unicode'
-else
-    let g:Powerline_symbols = 'fancy'
-endif
 
-call Pl#Theme#RemoveSegment('fileencoding')
-call Pl#Theme#RemoveSegment('fileformat')
+" --- Powerline ---------------------------------------------------------------
+"if has('unix')
+"    let g:Powerline_symbols = 'unicode'
+"else
+"    let g:Powerline_symbols = 'fancy'
+"endif
+"
+"call Pl#Theme#RemoveSegment('fileencoding')
+"call Pl#Theme#RemoveSegment('fileformat')
 
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
+
+
+" --- Syntastic ---------------------------------------------------------------
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E126,E127,E128,E701,E702,E501'
+
+" syntastic
+let g:syntastic_check_on_open=1 
+let g:syntastic_loc_list_height=4
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+
+nmap <silent> <leader>E :SyntasticToggleMode<CR>
+nmap <silent> <leader>e :SyntasticCheck<CR>
+
+
+" --- Jedi --------------------------------------------------------------------
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#popup_on_dot = 0
+autocmd FileType python setlocal completeopt-=preview
+
+
+" --- Supertab ----------------------------------------------------------------
+let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
+let g:SuperTabLongestEnhanced = 1
+let g:SuperTabLongestHighlight = 1
+let g:SuperTabClosePreviewOnPopupClose = 1
+
+
+" --- Ultisnips ---------------------------------------------------------------
+let g:UltiSnipsSnippetsDir = "~/.vim/snippets"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+
+
+
+
+
+
+
+
+
+
+
+
+" enter with indent (used with demilitMate)
+imap <C-c> <CR><Esc>O
+
 
 
 " pydoc.vim
@@ -393,13 +454,6 @@ let g:pydoc_cmd = 'python -m pydoc'
 let g:pydoc_open_cmd = 'vsplit'
 let g:pydoc_highlight = 0 
 
-
-" supertab
-let g:SuperTabDefaultCompletionType = "context"
-"let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
-let g:SuperTabLongestEnhanced = 1
-let g:SuperTabLongestHighlight = 1
-let g:SuperTabClosePreviewOnPopupClose = 1
 
 
 " TODO: move this to its own file
@@ -458,13 +512,4 @@ command! -range=% FormatXML <line1>,<line2>call DoFormatXML()
 nmap <silent> <leader>x :%FormatXML<CR>
 vmap <silent> <leader>x :FormatXML<CR>
 
-" UltiSnips 
-let g:UltiSnipsSnippetsDir = "~/.vim/snippets"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 
-" enable project vimrc files
-" set exrc
-" set secure
-
-" enter with indent (used with demilitMate)
-imap <C-c> <CR><Esc>O
