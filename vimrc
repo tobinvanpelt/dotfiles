@@ -22,6 +22,8 @@ endif
             "\ 'syntastic',
             "\ 'supertab',
             "\ 'jedi-vim',
+            "\ 'vim-coffee-script',
+            "\ 'vim-handlebars',
 
 "disabled  plugins
 let g:pathogen_disabled =[
@@ -29,13 +31,11 @@ let g:pathogen_disabled =[
             \ 'tagbar',
             \ 'coffeetags',
             \ 'delimitMate',
-            \ 'handlebars',
             \ 'salt-vim',
             \ 'tlib_vim',
             \ 'utils',
             \ 'vim-addon-mw-utils',
             \ 'vim-autoclose',
-            \ 'vim-coffee-script',
             \ 'vim-easytags',
             \ 'vim-indent-guides',
             \ 'vim-javascript',
