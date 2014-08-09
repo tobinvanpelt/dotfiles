@@ -23,7 +23,7 @@ endif
             "\ 'supertab',
             "\ 'jedi-vim',
             "\ 'vim-coffee-script',
-            "\ 'vim-handlebars',
+            "\ 'handlebars',
 
 "disabled  plugins
 let g:pathogen_disabled =[
