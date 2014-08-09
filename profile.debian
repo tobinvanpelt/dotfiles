@@ -1,8 +1,5 @@
-# universal profile file for setting env variables
-
 # set PATH
 PATH=/usr/local/bin:$PATH
-PATH=/usr/local/share/python:$PATH
 PATH=/usr/local/share/npm/bin:$PATH
 PATH=$HOME/.dot/bin:$PATH
 export PATH
@@ -11,8 +8,7 @@ export PATH
 export EDITOR=vim
 export VISUAL=vim
 
-# added by salt
-export PYTHONPATH=/home/tobin/h2oserver
-
 # set nosetests
 export NOSE_REDNOSE=1
+
+source ~/.bash_profile
