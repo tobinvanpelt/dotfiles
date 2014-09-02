@@ -24,6 +24,7 @@ endif
             "\ 'jedi-vim',
             "\ 'vim-coffee-script',
             "\ 'handlebars',
+            "\ 'vim-less',
 
 "disabled  plugins
 let g:pathogen_disabled =[
@@ -40,7 +41,6 @@ let g:pathogen_disabled =[
             \ 'vim-indent-guides',
             \ 'vim-javascript',
             \ 'vim-javascript-syntax',
-            \ 'vim-less',
             \ 'vim-markdown',
             \ 'vim-misc',
             \ 'vim-repeat',
