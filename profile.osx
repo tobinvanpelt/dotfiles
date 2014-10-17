@@ -8,6 +8,9 @@ PATH=/usr/local/opt/ruby/bin:$PATH
 PATH=$HOME/.dot/bin:$PATH
 export PATH
 
+PYTHONPATH=$HOME/h2oserver:$PYTHONPATH
+export PYTHONPATH
+
 # set editors
 export EDITOR=vim
 export VISUAL=vim
@@ -23,7 +26,8 @@ export NODE_PATH=/usr/local/lib/node/:$NODE_PATH
 
 # virtualenv wrapper
 export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/i3dtech
+export PROJECT_HOME=$HOME/Devel 
+source /usr/local/bin/virtualenvwrapper.sh
 
 # use mvim when possible - faster
 alias vim='mvim -v'

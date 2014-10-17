@@ -78,13 +78,21 @@ setw -g mode-keys vi
 set -g status-interval 10
 
 
+# NOTE: This no longer works in version 1.9a - use builtin zoom feature
 # tmux-utils zoom functionality
 # Need to have tmux-utils library on $PATH for these bindings
-unbind Up
-bind Up run-shell tmux-zoom
+#unbind Up
+#bind Up run-shell tmux-zoom
+#
+#unbind Down
+#bind Down run-shell tmux-unzoom
 
 unbind Down
-bind Down run-shell tmux-unzoom
+bind Up resize-pane -Z
+
+unbind Down
+bind DOWN resize-pane -Z
+
 
 # Copy mode
 bind -t vi-copy v begin-selection

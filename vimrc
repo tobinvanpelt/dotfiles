@@ -8,6 +8,11 @@
 " (do work)
 " :profile pause
 " :noautocmd qall!
+"
+"
+" For javascript followed:
+"
+" http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/
 
 if !has('unix')
     let $HOME="C:/home/tobin"
@@ -20,27 +25,30 @@ endif
             "\ 'vim-powerline',
             "\ 'ultisnips',
             "\ 'syntastic',
-            "\ 'supertab',
             "\ 'jedi-vim',
             "\ 'vim-coffee-script',
-            "\ 'handlebars',
+            "\ 'mustache',
             "\ 'vim-less',
+            "
+            "\ 'vim-javascript',
+            "\ 'vim-javascript-syntax',
+            "\ 'vim-indent-guides',
+            "\ 'delimitMate',
+            "\ 'YouCompleteMe',
+            "\ 'tern_for_vim',
 
 "disabled  plugins
-let g:pathogen_disabled =[
+let g:pathogen_disabled = [
+            \ 'supertab',
             \ 'vim-fugitive',
             \ 'tagbar',
             \ 'coffeetags',
-            \ 'delimitMate',
             \ 'salt-vim',
             \ 'tlib_vim',
             \ 'utils',
             \ 'vim-addon-mw-utils',
             \ 'vim-autoclose',
             \ 'vim-easytags',
-            \ 'vim-indent-guides',
-            \ 'vim-javascript',
-            \ 'vim-javascript-syntax',
             \ 'vim-markdown',
             \ 'vim-misc',
             \ 'vim-repeat',
@@ -57,8 +65,8 @@ call pathogen#infect()
 " Colors
 set t_Co=256
 syntax on
-colorscheme desert256
 set background=dark
+colorscheme desert256
 
 if has("gui_running")
     if has("gui_win32")
@@ -402,10 +410,11 @@ set encoding=utf-8 " Necessary to show unicode glyphs
 
 
 " --- Syntastic ---------------------------------------------------------------
+"  use `npm install -g jshint` to have linter for js
+"
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E126,E127,E128,E701,E702,E501'
 
-" syntastic
 let g:syntastic_check_on_open=1 
 let g:syntastic_loc_list_height=4
 let g:syntastic_error_symbol='✗'
@@ -422,30 +431,34 @@ autocmd FileType python setlocal completeopt-=preview
 
 
 " --- Supertab ----------------------------------------------------------------
-let g:SuperTabDefaultCompletionType = "context"
-"let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
-let g:SuperTabLongestEnhanced = 1
-let g:SuperTabLongestHighlight = 1
-let g:SuperTabClosePreviewOnPopupClose = 1
+"let g:SuperTabDefaultCompletionType = "context"
+""let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
+"let g:SuperTabLongestEnhanced = 1
+"let g:SuperTabLongestHighlight = 1
+"let g:SuperTabClosePreviewOnPopupClose = 1
 
 
 " --- Ultisnips ---------------------------------------------------------------
-let g:UltiSnipsSnippetsDir = "~/.vim/snippets"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+let g:UltiSnipsSnippetDirectories = ["vim-snippets/UltiSnips"]
+let g:UltiSnipsExpandTrigger="<c-l>"
 
 
-
-
-
-
-
-
-
-
-
-
-" enter with indent (used with demilitMate)
+" --- delimitMate -------------------------------------------------------------
 imap <C-c> <CR><Esc>O
+
+
+" --- YouCompleteMe -------------------------------------------------------------
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
+
+
+
+
+
+
+
+
 
 
 
@@ -511,5 +524,3 @@ command! -range=% FormatXML <line1>,<line2>call DoFormatXML()
 
 nmap <silent> <leader>x :%FormatXML<CR>
 vmap <silent> <leader>x :FormatXML<CR>
-
-
