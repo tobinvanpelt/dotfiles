@@ -11,4 +11,6 @@ export VISUAL=vim
 # set nosetests
 export NOSE_REDNOSE=1
 
-source ~/.bash_profile
+if [ -f ~/.bash_profile ]; then
+    source ~/.bash_profile
+fi
