@@ -36,6 +36,7 @@ endif
             "\ 'delimitMate',
             "\ 'YouCompleteMe',
             "\ 'tern_for_vim',
+            "\ 'vim-instant-markdown',
 
 "disabled  plugins
 let g:pathogen_disabled = [
@@ -49,7 +50,6 @@ let g:pathogen_disabled = [
             \ 'vim-addon-mw-utils',
             \ 'vim-autoclose',
             \ 'vim-easytags',
-            \ 'vim-markdown',
             \ 'vim-misc',
             \ 'vim-repeat',
             \ 'vim-semicolon',
@@ -447,14 +447,14 @@ let g:UltiSnipsExpandTrigger="<c-l>"
 imap <C-c> <CR><Esc>O
 
 
-" --- YouCompleteMe -------------------------------------------------------------
+" --- YouCompleteMe -----------------------------------------------------------
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
 
 
-
-
+" --- vim-instant-markdown ----------------------------------------------------
+let g:instant_markdown_slow = 1
 
 
 

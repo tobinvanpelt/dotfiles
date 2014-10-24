@@ -64,9 +64,6 @@
 [submodule "vim/bundle/salt-vim"]
 	path = vim/bundle/salt-vim
 	url = https://github.com/saltstack/salt-vim.git
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/bundle/vim-markdown
-	url = git://github.com/tpope/vim-markdown.git
 [submodule "vim/bundle/handlebars"]
 	path = vim/bundle/handlebars
 	url = git://github.com/nono/vim-handlebars.git
@@ -118,3 +115,6 @@
 [submodule "vim/bundle/vim-snippets"]
 	path = vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "vim/bundle/vim-instant-markdown"]
+	path = vim/bundle/vim-instant-markdown
+	url = https://github.com/suan/vim-instant-markdown.git
