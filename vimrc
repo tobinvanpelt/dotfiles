@@ -251,12 +251,6 @@ autocmd FileType html setlocal ts=2
 autocmd FileType html setlocal sts=2
 autocmd FileType html setlocal textwidth=0
 
-" XHTML (tab width 2 chr, no wrapping)
-autocmd FileType xhtml setlocal sw=2
-autocmd FileType xhtml setlocal ts=2
-autocmd FileType xhtml setlocal sts=2
-autocmd FileType xhtml setlocal textwidth=0
-
 " CSS (tab width 2 chr, wrap at 79th char)
 autocmd FileType css setlocal sw=2
 autocmd FileType css setlocal ts=2
@@ -267,8 +261,10 @@ autocmd FileType javascript setlocal sw=2
 autocmd FileType javascript setlocal ts=2
 autocmd FileType javascript setlocal sts=2
 
-" for javascript-indent
-"set background=dark
+" folding
+set foldmethod=syntax
+set foldlevelstart=99
+let javascript_fold=1
 
 
 " auto completes

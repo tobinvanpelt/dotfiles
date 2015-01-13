@@ -34,3 +34,6 @@ alias vim='mvim -v'
 
 # too many open files for OSX
 ulimit -S -n 2048
+
+# refresh build env for h2oclient
+alias nombom='echo "\n (╯°□°）╯︵ ┻━┻ \n" && npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'

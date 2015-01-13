@@ -39,3 +39,12 @@ Common Additional Steps
 4. edit .profile as needed:
 
 export PYTHONPATH=<python dirs>
+
+
+External Dependencies
+---------------------
+
+###YouCompleteMe
+1. `sudo apt-get install build-essential cmake`
+2. `cd ~/.vim/bundle/YouCompleteMe`
+3. `git submodule update --init --recursive`
