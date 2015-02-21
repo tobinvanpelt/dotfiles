@@ -37,11 +37,11 @@ endif
             "\ 'YouCompleteMe',
             "\ 'tern_for_vim',
             "\ 'vim-instant-markdown',
+            "\ 'vim-fugitive',
 
 "disabled  plugins
 let g:pathogen_disabled = [
             \ 'supertab',
-            \ 'vim-fugitive',
             \ 'tagbar',
             \ 'coffeetags',
             \ 'salt-vim',
@@ -336,6 +336,7 @@ let g:easytags_dynamic_files = 2
 
 " nerdtree
 nmap <silent> <leader>p :NERDTreeToggle<CR>
+nmap <silent> <leader>P :NERDTree<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
 " *.ipy files
