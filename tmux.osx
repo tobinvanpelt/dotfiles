@@ -60,7 +60,7 @@ set -g status-right "#(battery) | #[fg=cyan]%d %b %R"
 
 
 # other settings
-set -sg escape-time 1
+set -sg escape-time 0
 
 set -g base-index 1
 setw -g pane-base-index 1

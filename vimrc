@@ -151,6 +151,14 @@ if has('unix')
     endif
 endif
 
+" upon hitting escape to change modes,
+" send successive move-left and move-right
+" commands to immediately redraw the cursor
+inoremap <special> <Esc> <Esc>hl
+
+" don't blink the cursor
+"set guicursor+=i:blinkwait0
+
 " colored right edge
 highlight ColorColumn ctermbg=238
 set colorcolumn=80

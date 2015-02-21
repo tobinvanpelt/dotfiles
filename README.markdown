@@ -1,14 +1,11 @@
 Installation Notes
 ==================
-1. git clone git@github.com:tobinvanpelt/dotfiles.git ~/.dot
 
-2. cd ~/.dot
-
-3. git submodule update --init
-
-4. apt-get install zsh
-
-5. chsh -s /bin/zsh
+    git clone git@github.com:tobinvanpelt/dotfiles.git ~/.dot
+    cd ~/.dot
+    git submodule update --init
+    apt-get install zsh 
+    chsh -s /bin/zsh
 
 
 Create Symlinks
