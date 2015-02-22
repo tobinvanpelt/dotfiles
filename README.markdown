@@ -1,25 +1,34 @@
-Installation Notes
-==================
+# Dotfiles Setup
+
+## Install
 
     git clone git@github.com:tobinvanpelt/dotfiles.git ~/.dot
     cd ~/.dot
     git submodule update --init
+
+debian:
+
     apt-get install zsh 
+
+osx: 
+
+    brew install zsh
+
+then:
+
     chsh -s /bin/zsh
 
 
-Create Symlinks
----------------
+## Create Symlinks
+
 Edit and run the `init_osx` or `init_debian` script.
 
 
-Update Submodules
------------------
+## Update Submodules
 
-    git submodule update
+    git submodule update --init --recursive
 
-Upgrade Submodules
-------------------
+## Upgrade Submodules
 
 Upgrading a specific submodule (example):
 
@@ -33,8 +42,7 @@ Upgrading all submodules:
 NOTE: This could create incompatibilities depending on version requirements.
 
 
-Common Additional Steps
------------------------
+## Common Additional Steps
 
 pip install ipython
 pip install ipdb
@@ -42,17 +50,30 @@ pip install rednose
 
 edit `.profile` as needed:
 
-export PYTHONPATH=<python dirs>
+export PYTHONPATH=(python dir)
 
 
-External Dependencies
----------------------
+## External Dependencies
 
 ### YouCompleteMe
 
+Be sure that macvim is compiled with the most recent python that is installed.
+That is, you must brew python before brewing macvim.
+
+debian:
+
     sudo apt-get install build-essential cmake
+
+osx:
+
+    brew install cmake
+
+then:
+
     cd ~/.vim/bundle/YouCompleteMe
     git submodule update --init --recursive
+    ./install.sh
+
 
 ### Instant Markdown
 
