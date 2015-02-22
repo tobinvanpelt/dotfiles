@@ -24,7 +24,8 @@ bind / next-layout
 
 
 # colors
-set -g default-terminal "screen-256color"
+#set -g default-terminal "screen-256color"
+set -g default-terminal "linux"
 
 set -g status-fg white
 set -g status-bg colour235

@@ -10,30 +10,37 @@ Installation Notes
 
 Create Symlinks
 ---------------
-Edit and run the init_osx or init_debian script.
+Edit and run the `init_osx` or `init_debian` script.
 
 
 Update Submodules
 -----------------
-Updating a specific submodule (example):
+
+    git submodule update
+
+Upgrade Submodules
+------------------
+
+Upgrading a specific submodule (example):
 
     cd ~/.dot/vim/bundle/fugitive
     git pull origin master
 
-Updating all submodules:
+Upgrading all submodules:
 
     git submodule foreach git pull origin master
+
+NOTE: This could create incompatibilities depending on version requirements.
 
 
 Common Additional Steps
 -----------------------
-1. pip install ipython
 
-2. pip install ipdb
+pip install ipython
+pip install ipdb
+pip install rednose
 
-3. pip install rednose
-
-4. edit .profile as needed:
+edit `.profile` as needed:
 
 export PYTHONPATH=<python dirs>
 
@@ -41,7 +48,12 @@ export PYTHONPATH=<python dirs>
 External Dependencies
 ---------------------
 
-###YouCompleteMe
-1. `sudo apt-get install build-essential cmake`
-2. `cd ~/.vim/bundle/YouCompleteMe`
-3. `git submodule update --init --recursive`
+### YouCompleteMe
+
+    sudo apt-get install build-essential cmake
+    cd ~/.vim/bundle/YouCompleteMe
+    git submodule update --init --recursive
+
+### Instant Markdown
+
+    sudo npm -g install instant-markdown-d

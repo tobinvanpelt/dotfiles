@@ -18,7 +18,6 @@ if !has('unix')
     let $HOME="C:/home/tobin"
 endif
 
-
 "enabled  plugins
             "\ 'ctrlp.vim',
             "\ 'nerdtree',
@@ -61,7 +60,6 @@ let g:pathogen_disabled = [
 " INFECT the pathogen - wa ha ha ha
 call pathogen#infect()
 
-
 " Colors
 set t_Co=256
 syntax on
@@ -82,21 +80,16 @@ if has("gui_running")
 endif
 
 " change Searh highligh
-"highlight Search cterm=bold ctermfg=None ctermbg=222
 highlight Search cterm=bold ctermfg=None ctermbg=blue
 
 " map some leaders quick keys
-"nnoremap <silent> <leader>c :set cursorline! <CR>
 nnoremap <silent> <leader>c :call SetCursorline()<CR>
 nnoremap <silent> <leader>h :set hls! <CR>
 nnoremap <silent> <leader>= :set paste! <CR>
 
 let g:cursorline = 1
-"autocmd WinEnter,BufEnter * setlocal cursorline
-"autocmd WinLeave,BufLeave * setlocal nocursorline
 autocmd WinEnter,BufEnter * call UpdateCursorLine()
 autocmd WinLeave,BufLeave * setlocal nocursorline
-
 
 func! SetCursorline()
     setlocal cursorline!
@@ -107,14 +100,11 @@ func! SetCursorline()
     end
 endfunc
 
-
 func! UpdateCursorLine()
     if g:cursorline
         setlocal cursorline
     endif
 endfunc
-    
-
 
 highlight SignColumn ctermbg=None
 highlight LineNr ctermfg=229 ctermbg=None
@@ -134,11 +124,9 @@ endfunc
 autocmd InsertEnter * call CursorInsertHighlight()
 autocmd InsertLeave * call CursorNormalHighlight()
 
-
 " for copying to OSX clipboard
 vmap <C-x> :!pbcopy<CR>  
 vmap <C-c> :w !pbcopy<CR><CR> 
-
 
 " this crazieness changes cursor on insert when in tmux
 if has('unix')
@@ -156,9 +144,6 @@ endif
 " commands to immediately redraw the cursor
 inoremap <special> <Esc> <Esc>hl
 
-" don't blink the cursor
-"set guicursor+=i:blinkwait0
-
 " colored right edge
 highlight ColorColumn ctermbg=238
 set colorcolumn=80
@@ -173,9 +158,6 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -231,7 +213,6 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-
 set ai
 set ts=4
 set sts=4
@@ -242,6 +223,7 @@ set textwidth=79
 set ofu=syntaxcomplete#Complete
 autocmd ColorScheme * highlight Pmenu guibg=brown gui=bold
 set completeopt+=longest
+
 "set number
 set incsearch
 
@@ -284,26 +266,6 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 set hidden
 set virtualedit=all
 set wildmenu
-
-" move cursor to other window 
-noremap <silent> ,h :wincmd h<cr>
-noremap <silent> ,j :wincmd j<cr>
-noremap <silent> ,k :wincmd k<cr>
-noremap <silent> ,l :wincmd l<cr>
-
-" close window 
-noremap <silent> ,cj :wincmd j<cr>:close<cr>
-noremap <silent> ,ck :wincmd k<cr>:close<cr>
-noremap <silent> ,ch :wincmd h<cr>:close<cr>
-noremap <silent> ,cl :wincmd l<cr>:close<cr>
-
-" close current window
-noremap <silent> ,cc :close<cr>
-noremap <silent> ,ml <C-W>L
-noremap <silent> ,mk <C-W>K
-noremap <silent> ,mh <C-W>H
-noremap <silent> ,mj <C-W>J
-
 
 " a few settings for swap and backup
 set backup
@@ -386,37 +348,18 @@ let g:pymode_breakpoint=0
 let g:pymode_run=0
 
 
-" nose compiler 
-"autocmd BufNewFile,BufRead *.py compiler nose
-
-
-
-
 " --- tagbar ------------------------------------------------------------------
 let g:tagbar_sort = 0
 let g:tagbar_autoclose = 1
 
 nnoremap <silent> <leader>t :TagbarToggle<CR>
                                
-
-" --- Powerline ---------------------------------------------------------------
-"if has('unix')
-"    let g:Powerline_symbols = 'unicode'
-"else
-"    let g:Powerline_symbols = 'fancy'
-"endif
-"
-"call Pl#Theme#RemoveSegment('fileencoding')
-"call Pl#Theme#RemoveSegment('fileformat')
-
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show unicode glyphs
 
 
 " --- Syntastic ---------------------------------------------------------------
-"  use `npm install -g jshint` to have linter for js
-"
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E126,E127,E128,E701,E702,E501'
 
@@ -460,10 +403,6 @@ set completeopt-=preview
 
 " --- vim-instant-markdown ----------------------------------------------------
 let g:instant_markdown_slow = 1
-
-
-
-
 
 
 
@@ -525,7 +464,7 @@ function! DoFormatXML() range
     " Restore the file type
     exe "set ft=" . l:origft
 endfunction
-command! -range=% FormatXML <line1>,<line2>call DoFormatXML()
 
+command! -range=% FormatXML <line1>,<line2>call DoFormatXML()
 nmap <silent> <leader>x :%FormatXML<CR>
 vmap <silent> <leader>x :FormatXML<CR>
