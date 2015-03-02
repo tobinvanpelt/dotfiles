@@ -87,9 +87,27 @@ nnoremap <silent> <leader>c :call SetCursorline()<CR>
 nnoremap <silent> <leader>h :set hls! <CR>
 nnoremap <silent> <leader>= :set paste! <CR>
 
+" fix cursor keys when in insert
+inoremap <Esc>A <up>
+inoremap <Esc>B <down>
+inoremap <Esc>C <right>
+inoremap <Esc>D <left>
+
+" cursorline
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight SignColumn ctermbg=None
+highlight LineNr ctermfg=229 ctermbg=None
+highlight CursorLineNr cterm=bold ctermbg=238 ctermfg=208
+highlight CursorLine cterm=bold ctermbg=238 ctermfg=NONE
+
+let &colorcolumn=join(range(81,999),",")
 let g:cursorline = 1
+
 autocmd WinEnter,BufEnter * call UpdateCursorLine()
 autocmd WinLeave,BufLeave * setlocal nocursorline
+
+autocmd InsertEnter * call CursorInsertHighlight()
+autocmd InsertLeave * call CursorNormalHighlight()
 
 func! SetCursorline()
     setlocal cursorline!
@@ -104,12 +122,7 @@ func! UpdateCursorLine()
     if g:cursorline
         setlocal cursorline
     endif
-endfunc
-
-highlight SignColumn ctermbg=None
-highlight LineNr ctermfg=229 ctermbg=None
-highlight CursorLineNr ctermfg=208 ctermbg=238 
-highlight CursorLine ctermfg=None ctermbg=238
+endfunc                                   
 
 func! CursorInsertHighlight()
     highlight CursorLine ctermbg=235
@@ -121,10 +134,8 @@ func! CursorNormalHighlight()
     highlight CursorLineNr ctermbg=238
 endfunc
 
-autocmd InsertEnter * call CursorInsertHighlight()
-autocmd InsertLeave * call CursorNormalHighlight()
-
 " for copying to OSX clipboard
+set clipboard=unnamed
 vmap <C-x> :!pbcopy<CR>  
 vmap <C-c> :w !pbcopy<CR><CR> 
 
@@ -144,9 +155,6 @@ endif
 " commands to immediately redraw the cursor
 inoremap <special> <Esc> <Esc>hl
 
-" colored right edge
-highlight ColorColumn ctermbg=238
-set colorcolumn=80
 
 set hlsearch
 set nocompatible

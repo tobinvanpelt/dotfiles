@@ -44,13 +44,16 @@ NOTE: This could create incompatibilities depending on version requirements.
 
 ## Common Additional Steps
 
-pip install ipython
-pip install ipdb
-pip install rednose
+    pip install ipython
+    pip install ipdb
+    pip install nose2
+    pip install rednose
+    pip install virtualenv
+    pip install virtualenvwrapper
 
 edit `.profile` as needed:
 
-export PYTHONPATH=(python dir)
+    export PYTHONPATH=(python dir)
 
 
 ## External Dependencies

@@ -4,8 +4,8 @@ set -g prefix C-a
 bind C-a send-prefix
 
 # window splits
-bind | split-window -h
-bind - split-window -v
+bind | split-window -h -c '#{pane_current_path}'
+bind - split-window -v -c '#{pane_current_path}'
 
 # pane movement
 bind h select-pane -L
@@ -24,8 +24,7 @@ bind / next-layout
 
 
 # colors
-#set -g default-terminal "screen-256color"
-set -g default-terminal "linux"
+set -g default-terminal "screen-256color"
 
 set -g status-fg white
 set -g status-bg colour235
@@ -78,15 +77,6 @@ set -g status-justify centre
 setw -g mode-keys vi
 set -g status-interval 10
 
-
-# NOTE: This no longer works in version 1.9a - use builtin zoom feature
-# tmux-utils zoom functionality
-# Need to have tmux-utils library on $PATH for these bindings
-#unbind Up
-#bind Up run-shell tmux-zoom
-#
-#unbind Down
-#bind Down run-shell tmux-unzoom
 
 unbind Down
 bind Up resize-pane -Z
