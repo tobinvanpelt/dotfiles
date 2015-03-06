@@ -65,10 +65,10 @@ set -sg escape-time 0
 set -g base-index 1
 setw -g pane-base-index 1
 
-setw -g mode-mouse on
-set -g mouse-select-pane on
-set -g mouse-resize-pane on
-set -g mouse-select-window on
+#setw -g mode-mouse on
+#set -g mouse-select-pane on
+#set -g mouse-resize-pane on
+#set -g mouse-select-window on
 
 setw -g monitor-activity on
 set -g visual-activity on
@@ -77,7 +77,6 @@ set -g status-justify centre
 setw -g mode-keys vi
 set -g status-interval 10
 
-
 unbind Down
 bind Up resize-pane -Z
 
@@ -85,12 +84,16 @@ unbind Down
 bind DOWN resize-pane -Z
 
 
-# Copy mode
-bind -t vi-copy v begin-selection
-bind -t vi-copy y copy-selection
-bind -t vi-copy Escape cancel
-
-# OSX keyboard
+# Copy-paste integration
 set-option -g default-command "reattach-to-user-namespace -l zsh"
-bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
-bind C-v run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
+
+# Setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Bind ']' to use pbpaste
+bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"

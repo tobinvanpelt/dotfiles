@@ -136,8 +136,6 @@ endfunc
 
 " for copying to OSX clipboard
 set clipboard=unnamed
-vmap <C-x> :!pbcopy<CR>  
-vmap <C-c> :w !pbcopy<CR><CR> 
 
 " this crazieness changes cursor on insert when in tmux
 if has('unix')
