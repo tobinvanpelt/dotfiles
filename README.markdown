@@ -44,6 +44,13 @@ NOTE: This could create incompatibilities depending on version requirements.
 
 ## Common Additional Steps
 
+Install reattach-to-user-namesapce with 
+
+    brew install reattach-to-user-namespace
+
+
+Install common python libraries
+
     pip install ipython
     pip install ipdb
     pip install nose2
