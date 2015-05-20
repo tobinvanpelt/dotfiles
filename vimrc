@@ -34,7 +34,6 @@ endif
             "\ 'vim-indent-guides',
             "\ 'delimitMate',
             "\ 'YouCompleteMe',
-            "\ 'tern_for_vim',
             "\ 'vim-instant-markdown',
             "\ 'vim-fugitive',
 
@@ -44,6 +43,7 @@ let g:pathogen_disabled = [
             \ 'tagbar',
             \ 'coffeetags',
             \ 'salt-vim',
+            \ 'tern_for_vim',
             \ 'tlib_vim',
             \ 'utils',
             \ 'vim-addon-mw-utils',
@@ -80,7 +80,7 @@ if has("gui_running")
 endif
 
 " change Searh highligh
-highlight Search cterm=bold ctermfg=None ctermbg=blue
+highlight Search ctermfg=None ctermbg=244
 
 " map some leaders quick keys
 nnoremap <silent> <leader>c :call SetCursorline()<CR>
@@ -94,7 +94,8 @@ inoremap <Esc>C <right>
 inoremap <Esc>D <left>
 
 " cursorline
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
+"highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight ColorColumn ctermfg=None ctermbg=239
 highlight SignColumn ctermbg=None
 highlight LineNr ctermfg=229 ctermbg=None
 highlight CursorLineNr cterm=bold ctermbg=238 ctermfg=208
@@ -368,6 +369,7 @@ set encoding=utf-8 " Necessary to show unicode glyphs
 " --- Syntastic ---------------------------------------------------------------
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E126,E127,E128,E701,E702,E501'
+let g:syntastic_python_python_exec = 'python3'
 
 let g:syntastic_check_on_open=1 
 let g:syntastic_loc_list_height=4
