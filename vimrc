@@ -1,64 +1,31 @@
 " Tobin's vimrc file 
-"
-" Special Note: To profile see: http://stackoverflow.com/a/12216578/670654
-"
-" :profile start profile.log
-" :profile func *
-" :profile file *
-" (do work)
-" :profile pause
-" :noautocmd qall!
-"
-"
-" For javascript followed:
-"
-" http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/
 
-if !has('unix')
-    let $HOME="C:/home/tobin"
-endif
+" vundle init
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
 
-"enabled  plugins
-            "\ 'ctrlp.vim',
-            "\ 'nerdtree',
-            "\ 'vim-powerline',
-            "\ 'ultisnips',
-            "\ 'syntastic',
-            "\ 'jedi-vim',
-            "\ 'vim-coffee-script',
-            "\ 'mustache',
-            "\ 'vim-less',
-            "
-            "\ 'vim-javascript',
-            "\ 'vim-javascript-syntax',
-            "\ 'vim-indent-guides',
-            "\ 'delimitMate',
-            "\ 'YouCompleteMe',
-            "\ 'vim-instant-markdown',
-            "\ 'vim-fugitive',
+call vundle#begin()
+Plugin 'gmarik/vundle'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'scrooloose/syntastic'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'groenewege/vim-less'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'tpope/vim-fugitive'
+"Plugin 'Raimondi/delimitMate'
+call vundle#end()
+filetype plugin indent on
 
-"disabled  plugins
-let g:pathogen_disabled = [
-            \ 'supertab',
-            \ 'tagbar',
-            \ 'coffeetags',
-            \ 'salt-vim',
-            \ 'tern_for_vim',
-            \ 'tlib_vim',
-            \ 'utils',
-            \ 'vim-addon-mw-utils',
-            \ 'vim-autoclose',
-            \ 'vim-easytags',
-            \ 'vim-misc',
-            \ 'vim-repeat',
-            \ 'vim-semicolon',
-            \ 'vim-surround',
-            \ 'vim-virtualenv',
-            \ 'xterm-color-table']
-
-
-" INFECT the pathogen - wa ha ha ha
-call pathogen#infect()
 
 " Colors
 set t_Co=256
@@ -156,7 +123,6 @@ inoremap <special> <Esc> <Esc>hl
 
 
 set hlsearch
-set nocompatible
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -259,10 +225,15 @@ autocmd FileType javascript setlocal ts=2
 autocmd FileType javascript setlocal sts=2
 
 " folding
-set foldmethod=syntax
-set foldlevelstart=99
-let javascript_fold=1
+"set foldmethod=syntax
+"set foldlevelstart=99
+"let javascript_fold=1
 
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
+set foldignore=
 
 " auto completes
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -395,7 +366,7 @@ autocmd FileType python setlocal completeopt-=preview
 
 
 " --- Ultisnips ---------------------------------------------------------------
-let g:UltiSnipsSnippetDirectories = ["vim-snippets/UltiSnips"]
+let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-l>"
 
 
@@ -411,7 +382,6 @@ set completeopt-=preview
 
 " --- vim-instant-markdown ----------------------------------------------------
 let g:instant_markdown_slow = 1
-
 
 
 " pydoc.vim
