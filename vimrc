@@ -22,6 +22,8 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'Peeja/vim-cdo'
 "Plugin 'Raimondi/delimitMate'
 call vundle#end()
 filetype plugin indent on
