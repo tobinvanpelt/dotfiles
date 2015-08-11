@@ -1,4 +1,0 @@
-[nosetests]
-verbosity=2
-rednose=1
-with-id=1

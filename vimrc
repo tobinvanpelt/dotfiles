@@ -3,10 +3,10 @@
 " vundle init
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-powerline'
@@ -24,7 +24,8 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'Peeja/vim-cdo'
-"Plugin 'Raimondi/delimitMate'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'lepture/vim-jinja'
 call vundle#end()
 filetype plugin indent on
 

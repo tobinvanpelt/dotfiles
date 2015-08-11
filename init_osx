@@ -14,5 +14,4 @@ ln -s ~/.dot/tmux.osx ~/.tmux.conf
 ln -s ~/.dot/gitconfig ~/.gitconfig
 ln -s ~/.dot/gitignore ~/.gitignore
 
-ln -s ~/.dot/noserc ~/.noserc
 ln -s ~/.dot/ipython_config.py ~/.ipython/profile_default/ipython_config.py

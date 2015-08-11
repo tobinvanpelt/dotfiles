@@ -1,66 +1,31 @@
-# Dotfiles Setup
+# Dotfiles
 
-## Install
+## Installation
 
+1. Install git:
+    
+    ```
     git clone git@github.com:tobinvanpelt/dotfiles.git ~/.dot
     cd ~/.dot
-    git submodule update --init
-
-debian:
-
-    apt-get install zsh 
-
-osx: 
-
-    brew install zsh
-
-then:
-
-    chsh -s /bin/zsh
-
-
-## Create Symlinks
-
-Edit and run the `init_osx` or `init_debian` script.
-
-
-## Update Submodules
-
     git submodule update --init --recursive
+    ```
 
-## Upgrade Submodules
+2. Install zsh:
 
-Upgrading a specific submodule (example):
+    ```
+    apt-get install zsh (on debian)
+    brew install zsh (on osx)
+    chsh -s /bin/zsh
+    ```
 
-    cd ~/.dot/vim/bundle/fugitive
-    git pull origin master
+3. Create Symlinks:
 
-Upgrading all submodules:
-
-    git submodule foreach git pull origin master
-
-NOTE: This could create incompatibilities depending on version requirements.
-
-
-## Common Additional Steps
-
-Install reattach-to-user-namesapce with 
-
-    brew install reattach-to-user-namespace
+    Edit and run the `init_osx` or `init_debian` script.
 
 
-Install common python libraries
+5. Upgrade Submodules:
 
-    pip install ipython
-    pip install ipdb
-    pip install nose2
-    pip install rednose
-    pip install virtualenv
-    pip install virtualenvwrapper
-
-edit `.profile` as needed:
-
-    export PYTHONPATH=(python dir)
+    From vim run `:PluginsUpdate`
 
 
 ## External Dependencies

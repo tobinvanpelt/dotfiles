@@ -2,7 +2,6 @@
 
 # set PATH
 PATH=/usr/local/bin:$PATH
-#PATH=/usr/local/share/python:$PATH
 PATH=/usr/local/share/npm/bin:$PATH
 PATH=/usr/local/opt/ruby/bin:$PATH
 PATH=$HOME/.dot/bin:$PATH
