@@ -10,7 +10,6 @@ bind - split-window -v
 # only
 bind o kill-pane -a
 
-
 # repeat timing
 set -g repeat-time 200
 

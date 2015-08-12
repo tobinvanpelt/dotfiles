@@ -1,5 +1,4 @@
 #!/bin/bash
-
 ln -s ~/.dot/profile.debian ~/.profile
 ln -s ~/.dot/zprofile ~/.zprofile
 ln -s ~/.dot/zshrc ~/.zshrc

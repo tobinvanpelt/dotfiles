@@ -261,7 +261,8 @@ else
     set directory=~/.dot/vim/tmp/swap//
 endif
 
-call system('rm -f ~/.vim/tmp/backup/*\~(D)')
+call system('rm -f ~/.vim/tmp/backup/*~')
+call system('rm -f ~/.vim/tmp/backup/.*~')
 
 " -----------------------------------------------------------------------------
 

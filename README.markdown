@@ -18,26 +18,25 @@
     chsh -s /bin/zsh
     ```
 
-3. Create Symlinks:
+3. Create symlinks by editing and run the `init_osx` or `init_debian` script.
 
-    Edit and run the `init_osx` or `init_debian` script.
+5. Install vundle:
 
-
-5. Upgrade Submodules:
-
-    From vim run `:PluginsUpdate`
-
+    ```
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    vim +BundleInstall +qall
+    ```
 
 ## External Dependencies
 
 ### YouCompleteMe
 
-Be sure that macvim is compiled with the most recent python that is installed.
-That is, you must brew python before brewing macvim.
+Be sure that vim is built with python.
 
 debian:
 
     sudo apt-get install build-essential cmake
+    sudo apt-get install python2.7-dev
 
 osx:
 
