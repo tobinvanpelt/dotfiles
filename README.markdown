@@ -67,8 +67,3 @@ then:
 ### Instant Markdown
 
     sudo npm -g install instant-markdown-d
-
-
-# TODO
-- ignore bundle except for Vundle ??
-
