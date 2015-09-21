@@ -1,4 +1,6 @@
 #!/bin/bash
+mv ~/.profile ~/.profile.bak
+
 ln -s ~/.dot/profile.debian ~/.profile
 ln -s ~/.dot/zprofile ~/.zprofile
 ln -s ~/.dot/zshrc ~/.zshrc

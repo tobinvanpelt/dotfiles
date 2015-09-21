@@ -10,17 +10,28 @@
     git submodule update --init --recursive
     ```
 
-2. Install zsh:
+2. Install zsh (on Deian):
 
     ```
-    apt-get install zsh (on debian)
-    brew install zsh (on osx)
-    chsh -s /bin/zsh
+    sudo apt-get update
+    sudo apt-get install zsh
     ```
 
-3. Create symlinks by editing and run the `init_osx` or `init_debian` script.
+3. Install zsh (on osx):
 
-5. Install vundle:
+    ```
+    brew install zsh
+    ```
+
+4. Change to zsh:
+
+    ```
+    sudo chsh -s /bin/zsh
+    ```
+
+5. Create symlinks by editing and run the `init_osx` or `init_debian` script.
+
+6. Install vundle:
 
     ```
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
