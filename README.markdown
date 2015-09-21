@@ -31,6 +31,7 @@
 
 5. Create symlinks by editing and run the `init_osx` or `init_debian` script.
 
+
 6. Install vundle:
 
     ```
