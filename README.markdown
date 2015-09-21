@@ -43,7 +43,10 @@
 
 ### YouCompleteMe
 
-Be sure that vim is built with python.
+Be sure that vim is built with python. For debian: 
+
+    sudo apt-get install vim-nox
+
 
 debian:
 
@@ -64,3 +67,8 @@ then:
 ### Instant Markdown
 
     sudo npm -g install instant-markdown-d
+
+
+# TODO
+- ignore bundle except for Vundle ??
+

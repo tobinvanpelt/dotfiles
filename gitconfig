@@ -13,3 +13,6 @@
 
 [push]
 	default = upstream
+[user]
+	email = tobin@h2ometrics.com
+	name = Tobin
