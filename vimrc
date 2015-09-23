@@ -71,7 +71,7 @@ highlight LineNr ctermfg=229 ctermbg=None
 highlight CursorLineNr cterm=bold ctermbg=238 ctermfg=208
 highlight CursorLine cterm=bold ctermbg=238 ctermfg=NONE
 
-let &colorcolumn=join(range(81,999),",")
+let &colorcolumn=join(range(101,999),",")
 let g:cursorline = 1
 
 autocmd WinEnter,BufEnter * call UpdateCursorLine()
@@ -194,7 +194,7 @@ set ts=4
 set sts=4
 set et
 set sw=4
-set textwidth=79
+set textwidth=99
 
 set ofu=syntaxcomplete#Complete
 autocmd ColorScheme * highlight Pmenu guibg=brown gui=bold
@@ -211,13 +211,13 @@ autocmd FileType coffee set number
 autocmd FileType html set number
 autocmd FileType css set number
 
-" HTML (tab width 2 chr, no wrapping)
+" HTML
 autocmd FileType html setlocal sw=2
 autocmd FileType html setlocal ts=2
 autocmd FileType html setlocal sts=2
 autocmd FileType html setlocal textwidth=0
 
-" CSS (tab width 2 chr, wrap at 79th char)
+" CSS
 autocmd FileType css setlocal sw=2
 autocmd FileType css setlocal ts=2
 autocmd FileType css setlocal sts=2
@@ -343,7 +343,8 @@ set encoding=utf-8 " Necessary to show unicode glyphs
 
 " --- Syntastic ---------------------------------------------------------------
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_args='--ignore=E126,E127,E128,E701,E702,E501'
+let g:syntastic_python_flake8_args='--ignore=E126,E127,E128,E701,E702'
+let g:syntastic_python_flake8_args='--max-line-length=100'
 let g:syntastic_python_python_exec = 'python3'
 
 let g:syntastic_check_on_open=1 
