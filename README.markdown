@@ -20,13 +20,14 @@
 3. Install zsh (on osx):
 
     ```
+    brew update
     brew install zsh
     ```
 
 4. Change to zsh:
 
     ```
-    sudo chsh -s /bin/zsh
+    chsh -s /bin/zsh
     ```
 
 5. Create symlinks by editing and run the `init_osx` or `init_debian` script.
@@ -39,29 +40,29 @@
     vim +BundleInstall +qall
     ```
 
-## External Dependencies
+7. Be sure that vim is built with python. For debian: 
 
-### YouCompleteMe
-
-Be sure that vim is built with python. For debian: 
-
-    sudo apt-get install vim-nox
+    ```sudo apt-get install vim-nox```
 
 
-debian:
+8. Be sure you have build tools (on Debian)
 
+    ```
     sudo apt-get install build-essential cmake
     sudo apt-get install python2.7-dev
+    ```
 
-osx:
+9. Be sure you have build tools (on OSX)
 
-    brew install cmake
+    ```brew install cmake```
 
-then:
+10. Install YouCompleteMe:
 
+    ```
     cd ~/.vim/bundle/YouCompleteMe
     git submodule update --init --recursive
     ./install.sh
+    ```
 
 
 ### Instant Markdown
