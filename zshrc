@@ -53,18 +53,24 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%} ✓"
 
 
-## set this back to the original so that zsh uses the base python to run
-## virtualenv.  This is originally set in .zprofile
-#export VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_PYTHON_ORIGINAL
-#
-##soruce virtualenv
-#source virtualenvwrapper.sh 2> /dev/null
-#
-## initializes the semicolon command
-#. ~/.vim/bundle/vim-semicolon/scripts/semicolon_init
-#
-## automatically start virtualenv if VIRTUAL_ENV is set
-## (used with tmux to inherit the current virtualenv)
-#if [ -n "$VIRTUAL_ENV" ]; then
-#    workon $(basename $VIRTUAL_ENV)
-#fi
+# set this back to the original so that zsh uses the base python to run
+# virtualenv.  This is originally set in .zprofile
+export VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_PYTHON_ORIGINAL
+
+#soruce virtualenv
+source virtualenvwrapper.sh 2> /dev/null
+
+# automatically start virtualenv if VIRTUAL_ENV is set
+# (used with tmux to inherit the current virtualenv)
+if [ -n "$VIRTUAL_ENV" ]; then
+    workon $(basename $VIRTUAL_ENV)
+fi
+
+# fixes issues using Matplotlib with virtualenvs - needing a framework build
+function frameworkpython {
+    if [ ! -z "$VIRTUAL_ENV"]; then
+        PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/python3.5 "$@"
+    else
+        /usr/local/bin/python3.5 "$@"
+    fi
+}

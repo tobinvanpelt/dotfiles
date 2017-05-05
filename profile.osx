@@ -5,7 +5,7 @@ PATH=/usr/local/opt/ruby/bin:$PATH
 PATH=$HOME/.dot/bin:$PATH
 export PATH
 
-PYTHONPATH=$HOME/h2oserver:$PYTHONPATH
+PYTHONPATH=$PYTHONPATH:$HOME/code/neural
 export PYTHONPATH
 
 # set editors
@@ -18,7 +18,8 @@ export ARCHFLAGS="-arch i386 -arch x86_64"
 # virtualenv wrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel 
-source /usr/local/bin/virtualenvwrapper.sh
+
+# source /Usr/local/bin/virtualenvwrapper.sh
 
 # use mvim when possible - faster
 alias vim='mvim -v'
@@ -28,3 +29,5 @@ ulimit -S -n 2048
 
 # refresh build env for h2oclient
 alias nombom='echo "\n (╯°□°）╯︵ ┻━┻ \n" && npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
+
+source ~/.bash_profile

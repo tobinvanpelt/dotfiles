@@ -26,9 +26,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'Peeja/vim-cdo'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'lepture/vim-jinja'
+Plugin 'IN3D/vim-raml'
 call vundle#end()
 filetype plugin indent on
-
 
 " Colors
 set t_Co=256
@@ -313,6 +313,10 @@ command! HideJS let g:ctrlp_custom_ignore= '\.js$\|\.pyc$' | :ClearAllCtrlPCache
 
 " keeps ctrlp away from build dirs
 let g:ctrlp_mruf_exclude = '\/build\/'
+" cache last 10 files
+let g:ctrlp_use_caching = 10
+" clear cache on exit
+let g:ctrlp_clear_cache_on_exit = 1
 
 nnoremap <silent> <leader>f :CtrlP<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
@@ -371,8 +375,10 @@ autocmd FileType python setlocal completeopt-=preview
 
 
 " --- Ultisnips ---------------------------------------------------------------
-let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "MySnips"]
 let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 
 " --- delimitMate -------------------------------------------------------------
